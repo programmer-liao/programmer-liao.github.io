@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>win10安装git</title>
+      <link href="/2022/07/01/win10%E5%AE%89%E8%A3%85git/"/>
+      <url>/2022/07/01/win10%E5%AE%89%E8%A3%85git/</url>
+      
+        <content type="html"><![CDATA[<h2 id="下载git">下载git</h2><p>直接在<a href="https://git-scm.com/">git官网</a>下载git安装程序</p><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/6733/image-20220701121811166.png" alt="image-20220701121811166"></p><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/6733/image-20220701121855796.png" alt="image-20220701121855796"></p><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/6733/image-20220701122022962.png" alt="image-20220701122022962"></p><p>注：如果下载速度过慢，可复制下载链接后到迅雷中下载，下载速度有一定的提升</p><h2 id="安装git">安装git</h2><p>下载完成后，我们进入git安装程序</p><p>点击next</p><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/6733/image-20220701122509198.png" alt="image-20220701122509198"></p><p>git安装目录一般默认放在C盘，我的习惯是把安装程序放在D盘，此步可忽略，点击next</p><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/6733/image-20220701122808719.png" alt="image-20220701122808719"></p><p>勾选要启用的功能，本人做了注解，可以参考以下</p><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/6733/image-20220701123613240.png" alt="image-20220701123613240"></p><p>选择是否需要添加git启动菜单快捷方式</p><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/6733/image-20220701123911111.png" alt="image-20220701123911111"></p><p>选择git编辑器，按照自己的偏好选择，这里我选择的是Vim编辑器</p><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/6733/image-20220701124106743.png" alt="image-20220701124106743"></p><p>选择默认分支名称</p><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/6733/image-20220701124245447.png" alt="image-20220701124245447"></p><p>选择git的环境变量范围</p><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/6733/image-20220701124651811.png" alt="image-20220701124651811"></p><p>选择ssh，默认即可</p><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/6733/image-20220701124754952.png" alt="image-20220701124754952"></p><p>选择https ssh，默认即可</p><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/6733/image-20220701124901960.png" alt="image-20220701124901960"></p><p>由于windows和Linux的换行符编码不同，git提供了转换方法，这里默认即可</p><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/6733/image-20220701125157074.png" alt="image-20220701125157074"></p><p>选择git终端，默认即可</p><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/6733/image-20220701125338139.png" alt="image-20220701125338139"></p><p>选择git pull的行为，这里默认即可</p><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/6733/image-20220701125504434.png" alt="image-20220701125504434"></p><p>选择登录凭证，这里默认开启</p><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/6733/image-20220701125548161.png" alt="image-20220701125548161"></p><p>后面的直接点next即可，等待安装完成</p><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/6733/image-20220701125727729.png" alt="image-20220701125727729"></p><p>至此，git就安装完成了</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> git </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>JDK的下载与安装</title>
       <link href="/2022/06/30/JDK%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85/"/>
       <url>/2022/06/30/JDK%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85/</url>
