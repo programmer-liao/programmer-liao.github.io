@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>JDK的下载与安装</title>
+      <link href="/2022/06/30/JDK%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85/"/>
+      <url>/2022/06/30/JDK%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85/</url>
+      
+        <content type="html"><![CDATA[<h2 id="JDK的下载">JDK的下载</h2><p>直接进入到<a href="https://www.oracle.com/java/technologies/downloads/#java8">JDK官网下载</a></p><p>对于不同的操作系统有对应版本的JDK，这里演示windows x64版本的jdk8下载</p><p>点击下载</p><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/6733/image-20220630215248291.png" alt="image-20220630215248291"></p><h2 id="JDK的安装">JDK的安装</h2><p>下载完成后点击安装程序，以<strong>管理员的身份</strong>运行，进入安装界面</p><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/6733/image-20220630220658188.png" alt="image-20220630220658188"></p><p>点击下一步</p><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/6733/image-20220630220938816.png" alt="image-20220630220938816"></p><p>一般程序默认安装在C盘，这里选择安装在D盘，单击更改</p><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/6733/image-20220630221136255.png" alt="image-20220630221136255"></p><p>选择安装在D盘的一个目录，<strong>注意安装目录不能有中文或者特殊字符如空格</strong></p><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/6733/image-20220630221331914.png" alt="image-20220630221331914"></p><p>改完后单击确定，点击下一步，等待程序安装完成</p><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/6733/image-20220630221538956.png" alt="image-20220630221538956"></p><p>安装过程中提示安装java的指定目录，和上面步骤差不多，安装在D盘</p><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/6733/image-20220630222334948.png" alt="image-20220630222334948"></p><p>等待安装完成</p><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/6733/image-20220630222452708.png" alt="image-20220630222452708"></p><p>安装完成关闭提示界面即可</p><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/6733/image-20220630222629490.png" alt="image-20220630222629490"></p><p>至此，jdk8就已经成功安装</p><p>可以看到对应文件夹有以下文件</p><p>JDK目录</p><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/6733/image-20220630222938440.png" alt="image-20220630222938440"></p><p>jre目录</p><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/6733/image-20220630222847112.png" alt="image-20220630222847112"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>大学物理（上）期末复习</title>
       <link href="/2022/06/22/%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86%EF%BC%88%E4%B8%8A%EF%BC%89%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"/>
       <url>/2022/06/22/%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86%EF%BC%88%E4%B8%8A%EF%BC%89%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/</url>
