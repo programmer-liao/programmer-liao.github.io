@@ -1,0 +1,20 @@
+#aside-content .card-widget, 
+#recent-posts .recent-post-item, 
+.append-item, 
+.cardHover, 
+.error404 
+#error-wrap .error-content, 
+.layout>.recent-posts .pagination>:not(.space), 
+.layout>div:first-child:not(.recent-posts) {
+    border: 3px solid transparent;
+}
+
+#aside-content .card-widget:hover, 
+#recent-posts .recent-post-item:hover, 
+.append-item:hover, 
+.cardHover:hover, 
+.error404 #error-wrap .error-content:hover, 
+.layout>.recent-posts .pagination>:not(.space):hover, 
+.layout>div:first-child:not(.recent-posts):hover{
+    border: 3px solid #49b1f5;
+}
