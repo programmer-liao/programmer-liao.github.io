@@ -4,17 +4,15 @@
 .cardHover, 
 .error404 
 #error-wrap .error-content, 
-.layout>.recent-posts .pagination>:not(.space), 
 .layout>div:first-child:not(.recent-posts) {
-    border: 3px solid transparent;
+    border: 1px solid transparent;
 }
 
 #aside-content .card-widget:hover, 
 #recent-posts .recent-post-item:hover, 
 .append-item:hover, 
 .cardHover:hover, 
-.error404 #error-wrap .error-content:hover, 
-.layout>.recent-posts .pagination>:not(.space):hover, 
+.error404 #error-wrap .error-content:hover,  
 .layout>div:first-child:not(.recent-posts):hover{
-    border: 3px solid #49b1f5;
+    border: 1px solid #49b1f5;
 }

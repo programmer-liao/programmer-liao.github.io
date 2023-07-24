@@ -1,0 +1,19 @@
+.layout {
+    max-width: 1600px;
+}
+
+.page #content-inner {
+    max-width: 1200px !important
+}
+
+@media screen and (max-width: 900px) {
+    #aside-content {
+        width: 100% !important
+    }
+}
+
+
+#aside-content {
+    width: 35%
+}
+
