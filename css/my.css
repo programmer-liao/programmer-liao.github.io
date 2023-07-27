@@ -13,8 +13,4 @@ a#card-info-btn {
     border-radius: 50px;
 }
 
-# 导航栏hover动效
-#nav *::after{
-    border-radius: 50px;
-}
 
