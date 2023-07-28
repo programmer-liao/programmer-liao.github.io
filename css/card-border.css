@@ -1,18 +1,18 @@
-#aside-content .card-widget, 
-#recent-posts .recent-post-item, 
-.append-item, 
-.cardHover, 
-.error404 
-#error-wrap .error-content, 
+#aside-content .card-widget,
+#recent-posts .recent-post-item,
+.append-item,
+.cardHover,
+.error404
+#error-wrap .error-content,
 .layout>div:first-child:not(.recent-posts) {
-    border: 1px solid transparent;
+    border: 1px solid #e0e3ed;
 }
 
-#aside-content .card-widget:hover, 
-#recent-posts .recent-post-item:hover, 
-.append-item:hover, 
-.cardHover:hover, 
-.error404 #error-wrap .error-content:hover,  
+#aside-content .card-widget:hover,
+#recent-posts .recent-post-item:hover,
+.append-item:hover,
+.cardHover:hover,
+.error404 #error-wrap .error-content:hover,
 .layout>div:first-child:not(.recent-posts):hover{
     border: 1px solid #49b1f5;
 }
