@@ -1,14 +1,14 @@
-# 分页按钮
+#分页按钮,
 #pagination {
     margin: auto
 }
 
-# 暗夜模式
+#暗夜模式,
 [data-theme='dark'] {
     --card-bg: #242428;
 }
 
-# followme 
+#FollowMe,
 a#card-info-btn {
     border-radius: 50px;
 }
