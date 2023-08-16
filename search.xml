@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>学习资源汇总</title>
+      <link href="/posts/5bf5/"/>
+      <url>/posts/5bf5/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h2><p>这篇博客主要汇总了本人平时收集的一些自认为比较优质的学习资源，方便本人以及看到这篇文章的朋友，会不定期更新😊。</p><h2 id="资源汇总"><a class="markdownIt-Anchor" href="#资源汇总"></a> 资源汇总</h2><h3 id="java"><a class="markdownIt-Anchor" href="#java"></a> Java</h3><ol><li><p><a href="https://javaguide.cn/">Java 面试指南</a></p></li><li><p><a href="https://bugstack.cn/">bugstack 虫洞栈</a></p></li><li><p><a href="https://tech.meituan.com/">美团技术团队 </a></p></li><li><p><a href="https://www.pdai.tech/">Java全栈知识体系</a></p></li><li><p><a href="http://www.susan.net.cn/">Java突击队</a></p></li></ol><h3 id="golang"><a class="markdownIt-Anchor" href="#golang"></a> Golang</h3><ol><li><a href="https://www.topgoer.com/">前景 · Go语言中文文档</a></li><li><a href="https://www.kancloud.cn/wangking/gogogo/2067280">基础知识 · Go · 看云 </a></li></ol><h3 id="综合"><a class="markdownIt-Anchor" href="#综合"></a> 综合</h3><ol><li><p><a href="https://xiaolincoding.com/">小林Coding</a></p></li><li><p><a href="https://hit-alibaba.github.io/interview/">笔试面试知识整理</a></p></li><li><p><a href="https://www.cyc2018.xyz/">CS-Notes 面试笔记</a></p></li></ol><h2 id="工具"><a class="markdownIt-Anchor" href="#工具"></a> 工具</h2><ol><li><a href="https://coverview.vercel.app/">博客封面图片生成</a></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 资源汇总 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 资源汇总 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Docker空镜像原因排查</title>
       <link href="/posts/0/"/>
       <url>/posts/0/</url>
