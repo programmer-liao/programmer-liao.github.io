@@ -1,0 +1,196 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>设置远程连接redis | 神笔码农的小站</title><meta name="author" content="神笔码农"><meta name="copyright" content="神笔码农"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="设置远程连接redis  修改配置文件 这里假设已经在服务器安装好了redis环境，但是我们现在还无法连接服务器上的redis，这时我们编辑redis.conf文件  1vim redis.conf 将下面这行注销即可  再次连接，可以看到连接成功  但是这时候，使用不了命令  提示如下： 123(error) DENIED Redis is running in protected mode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设置远程连接redis">
+<meta property="og:url" content="https://dezhi.site/posts/18ad/index.html">
+<meta property="og:site_name" content="神笔码农的小站">
+<meta property="og:description" content="设置远程连接redis  修改配置文件 这里假设已经在服务器安装好了redis环境，但是我们现在还无法连接服务器上的redis，这时我们编辑redis.conf文件  1vim redis.conf 将下面这行注销即可  再次连接，可以看到连接成功  但是这时候，使用不了命令  提示如下： 123(error) DENIED Redis is running in protected mode">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://dezhi.site/img/cover/cover25.png">
+<meta property="article:published_time" content="2023-08-17T12:41:28.278Z">
+<meta property="article:modified_time" content="2023-08-17T13:03:49.060Z">
+<meta property="article:author" content="神笔码农">
+<meta property="article:tag" content="Redis">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dezhi.site/img/cover/cover25.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://dezhi.site/posts/18ad/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '设置远程连接redis',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-08-17 21:03:49'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/footer.css"><link rel="stylesheet" href="/css/background.css"><link rel="stylesheet" href="/css/scrollbar.css"><link rel="stylesheet" href="/css/frontface.css"><link rel="stylesheet" href="/css/card-border.css"><link rel="stylesheet" href="/css/width.css"><link rel="stylesheet" href="/css/my.css"><link rel="stylesheet" href="/css/load.css"><link rel="stylesheet" href="/css/atom-one-dark.css"><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css"/>
+<style>#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags:before {content:"\A";
+  white-space: pre;}#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags > .article-meta__separator{display:none}</style>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><link rel="stylesheet" href="/css/load.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js/pace.min.js"></script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/tux.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">神笔码农的小站</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">设置远程连接redis</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-08-17T12:41:28.278Z" title="发表于 2023-08-17 20:41:28">2023-08-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-08-17T13:03:49.060Z" title="更新于 2023-08-17 21:03:49">2023-08-17</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Redis/">Redis</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="设置远程连接redis"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="设置远程连接redis"><a class="markdownIt-Anchor" href="#设置远程连接redis"></a> 设置远程连接redis</h1>
+<h2 id="修改配置文件"><a class="markdownIt-Anchor" href="#修改配置文件"></a> 修改配置文件</h2>
+<p>这里假设已经在服务器安装好了redis环境，但是我们现在还无法连接服务器上的redis，这时我们编辑redis.conf文件</p>
+<p><img src="/posts/18ad/image-20220823173502769.png" alt="image-20220823173502769"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">vim redis.conf<br></code></pre></td></tr></table></figure>
+<p>将下面这行注销即可</p>
+<p><img src="/posts/18ad/image-20220823180631332.png" alt="image-20220823180631332"></p>
+<p>再次连接，可以看到连接成功</p>
+<p><img src="/posts/18ad/image-20220823173544992.png" alt="image-20220823173544992"></p>
+<p>但是这时候，使用不了命令</p>
+<p><img src="/posts/18ad/image-20220823173801151.png" alt="image-20220823173801151"></p>
+<p>提示如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">(error) DENIED Redis is running in protected mode because protected mode is enabled and no password is set for the default user. In this mode connections are only accepted from the loopback interface. If you want to connect from external computers to Redis you may adopt one of the following solutions: 1) Just disable protected mode sending the command &#x27;CONFIG SET protected-mode no&#x27; from the loopback interface by connecting to Redis from the same host the server is running, however MAKE SURE Redis is not publicly accessible from internet if you do so. Use CONFIG REWRITE to make this change permanent. 2) Alternatively you can just disable the protected mode by editing the Redis configuration file, and setting the protected mode option to &#x27;no&#x27;, and then restarting the server. 3) If you started the server manually just for testing, restart it with the &#x27;--protected-mode no&#x27; option. 4) Setup a an authentication password for the default user. NOTE: You only need to do one of the above things in order for the server to start accepting connections<br>翻译如下：<br>(错误)DENIED Redis运行在保护模式，因为保护模式已启用，默认用户没有设置密码。在这种模式下，只接受来自loopback接口的连接。如果你想从外部计算机连接到Redis，你可以采用以下解决方案之一:1)只要禁用保护模式发送命令&#x27;CONFIG SET protected-mode no&#x27;从环回接口连接到服务器正在运行的同一主机，但确保Redis不是公开从互联网访问，如果你这样做。使用CONFIG REWRITE使此更改永久生效。2)或者你可以通过编辑Redis的配置文件来禁用保护模式，并将保护模式选项设置为“no”，然后重新启动服务器。3)如果你只是为了测试而手动启动服务器，用“——protected-mode no”选项重新启动它。4)为默认用户设置认证密码。注意:为了让服务器开始接受连接，您只需要做上面的一件事<br></code></pre></td></tr></table></figure>
+<h2 id="设置密码"><a class="markdownIt-Anchor" href="#设置密码"></a> 设置密码</h2>
+<p>这里我们选择设置密码</p>
+<p>连接服务器，打开客户端</p>
+<p>获取当前密码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">config get requirepass<br></code></pre></td></tr></table></figure>
+<p>可以看到当前密码为空</p>
+<p><img src="/posts/18ad/image-20220823174907425.png" alt="image-20220823174907425"></p>
+<p>设置密码为123456</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">config set requirepass 123456<br></code></pre></td></tr></table></figure>
+<p><img src="/posts/18ad/image-20220823175735359.png" alt="image-20220823175735359"></p>
+<p>再次查看密码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">config get requirepass<br></code></pre></td></tr></table></figure>
+<p><img src="/posts/18ad/image-20220823175832704.png" alt="image-20220823175832704"></p>
+<p>密码设置完成</p>
+<h2 id="远程连接redis"><a class="markdownIt-Anchor" href="#远程连接redis"></a> 远程连接redis</h2>
+<h3 id="方式1使用auth"><a class="markdownIt-Anchor" href="#方式1使用auth"></a> 方式1：使用auth</h3>
+<p>我们再来尝试一次远程连接</p>
+<p>这时使用任何命令都提示需要验证密码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">(error) NOAUTH Authentication required.<br>翻译：<br>(错误)NOAUTH需要认证。<br></code></pre></td></tr></table></figure>
+<p>进行验证</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">auth 123456<br></code></pre></td></tr></table></figure>
+<p>可以看到已经验证成功</p>
+<p><img src="/posts/18ad/image-20220823180053126.png" alt="image-20220823180053126"></p>
+<p>使ping命令进行测试</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ping<br></code></pre></td></tr></table></figure>
+<p>可以看到测试成功</p>
+<p><img src="/posts/18ad/image-20220823180331532.png" alt="image-20220823180331532"></p>
+<h3 id="方式2使用-a"><a class="markdownIt-Anchor" href="#方式2使用-a"></a> 方式2：使用-a</h3>
+<p>除了在客户端里面输入密码验证外，还可以在连接redis的时候输入密码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">redis-cli -h 主机ip -p 6379 -a 123456<br></code></pre></td></tr></table></figure>
+<p><img src="/posts/18ad/image-20220823180534528.png" alt="image-20220823180534528"></p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Redis/">Redis</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/d4a2/"><img class="next-cover" src="/img/cover/cover26.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">windows安装redis</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/3e3f/" title="CentOS安装redis"><img class="cover" src="/img/cover/cover15.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-17</div><div class="title">CentOS安装redis</div></div></a></div><div><a href="/posts/7704/" title="RedisTemplate常用方法详解"><img class="cover" src="/img/cover/cover16.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-17</div><div class="title">RedisTemplate常用方法详解</div></div></a></div><div><a href="/posts/d1b6/" title="redis操作之List操作"><img class="cover" src="/img/cover/cover19.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-17</div><div class="title">redis操作之List操作</div></div></a></div><div><a href="/posts/d776/" title="redis操作之String操作"><img class="cover" src="/img/cover/cover21.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-17</div><div class="title">redis操作之String操作</div></div></a></div><div><a href="/posts/1d65/" title="redis操作之Zset操作"><img class="cover" src="/img/cover/cover22.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-17</div><div class="title">redis操作之Zset操作</div></div></a></div><div><a href="/posts/6f4c/" title="redis操作之hash操作"><img class="cover" src="/img/cover/cover17.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-17</div><div class="title">redis操作之hash操作</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/tux.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">神笔码农</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/programmer-liao"><i class="fab fa-github"></i><span>follow me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到神笔码农的小站，我在这里分享知识</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5redis"><span class="toc-number">1.</span> <span class="toc-text"> 设置远程连接redis</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">1.1.</span> <span class="toc-text"> 修改配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%AF%86%E7%A0%81"><span class="toc-number">1.2.</span> <span class="toc-text"> 设置密码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5redis"><span class="toc-number">1.3.</span> <span class="toc-text"> 远程连接redis</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E5%BC%8F1%E4%BD%BF%E7%94%A8auth"><span class="toc-number">1.3.1.</span> <span class="toc-text"> 方式1：使用auth</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E5%BC%8F2%E4%BD%BF%E7%94%A8-a"><span class="toc-number">1.3.2.</span> <span class="toc-text"> 方式2：使用-a</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/18ad/" title="设置远程连接redis"><img src="/img/cover/cover25.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="设置远程连接redis"/></a><div class="content"><a class="title" href="/posts/18ad/" title="设置远程连接redis">设置远程连接redis</a><time datetime="2023-08-17T12:41:28.278Z" title="发表于 2023-08-17 20:41:28">2023-08-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/d4a2/" title="windows安装redis"><img src="/img/cover/cover26.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="windows安装redis"/></a><div class="content"><a class="title" href="/posts/d4a2/" title="windows安装redis">windows安装redis</a><time datetime="2023-08-17T12:41:28.276Z" title="发表于 2023-08-17 20:41:28">2023-08-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/54a/" title="redis的启动和停止"><img src="/img/cover/cover24.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="redis的启动和停止"/></a><div class="content"><a class="title" href="/posts/54a/" title="redis的启动和停止">redis的启动和停止</a><time datetime="2023-08-17T12:41:28.274Z" title="发表于 2023-08-17 20:41:28">2023-08-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/a222/" title="redis操作之库操作"><img src="/img/cover/cover23.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="redis操作之库操作"/></a><div class="content"><a class="title" href="/posts/a222/" title="redis操作之库操作">redis操作之库操作</a><time datetime="2023-08-17T12:41:28.273Z" title="发表于 2023-08-17 20:41:28">2023-08-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/1d65/" title="redis操作之Zset操作"><img src="/img/cover/cover22.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="redis操作之Zset操作"/></a><div class="content"><a class="title" href="/posts/1d65/" title="redis操作之Zset操作">redis操作之Zset操作</a><time datetime="2023-08-17T12:41:28.270Z" title="发表于 2023-08-17 20:41:28">2023-08-17</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2023 By 神笔码农</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
