@@ -1,0 +1,294 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>java基础知识梳理（四）：流程控制 | 神笔码农的小站</title><meta name="author" content="神笔码农"><meta name="copyright" content="神笔码农"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="基本介绍 在程序中，程序运行的流程控制决定程序如何执行  总体分类  顺序控制 分支控制 循环控制   顺序控制  概念 顺序控制是指从上到下逐行地执行，中间没有任何判断和跳转  细节 变量必须先定义再使用，即遵循顺序控制 java定义变量时采用合法的前向引用 1234567&#x2F;&#x2F; 正确int num1 &#x3D; 12;int num2 &#x3D; num1 + 2;&#x2F;&#x2F; 错误int num2 &#x3D; num1 +">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java基础知识梳理（四）：流程控制">
+<meta property="og:url" content="https://dezhi.site/posts/2715/index.html">
+<meta property="og:site_name" content="神笔码农的小站">
+<meta property="og:description" content="基本介绍 在程序中，程序运行的流程控制决定程序如何执行  总体分类  顺序控制 分支控制 循环控制   顺序控制  概念 顺序控制是指从上到下逐行地执行，中间没有任何判断和跳转  细节 变量必须先定义再使用，即遵循顺序控制 java定义变量时采用合法的前向引用 1234567&#x2F;&#x2F; 正确int num1 &#x3D; 12;int num2 &#x3D; num1 + 2;&#x2F;&#x2F; 错误int num2 &#x3D; num1 +">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://dezhi.site/img/cover/cover44.png">
+<meta property="article:published_time" content="2023-08-18T05:55:53.692Z">
+<meta property="article:modified_time" content="2023-08-18T08:10:48.976Z">
+<meta property="article:author" content="神笔码农">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dezhi.site/img/cover/cover44.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://dezhi.site/posts/2715/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'java基础知识梳理（四）：流程控制',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-08-18 16:10:48'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/footer.css"><link rel="stylesheet" href="/css/background.css"><link rel="stylesheet" href="/css/scrollbar.css"><link rel="stylesheet" href="/css/frontface.css"><link rel="stylesheet" href="/css/card-border.css"><link rel="stylesheet" href="/css/width.css"><link rel="stylesheet" href="/css/my.css"><link rel="stylesheet" href="/css/load.css"><link rel="stylesheet" href="/css/atom-one-dark.css"><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css"/>
+<style>#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags:before {content:"\A";
+  white-space: pre;}#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags > .article-meta__separator{display:none}</style>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><link rel="stylesheet" href="/css/load.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js/pace.min.js"></script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/tux.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">64</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">神笔码农的小站</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">java基础知识梳理（四）：流程控制</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-08-18T05:55:53.692Z" title="发表于 2023-08-18 13:55:53">2023-08-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-08-18T08:10:48.976Z" title="更新于 2023-08-18 16:10:48">2023-08-18</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Java/">Java</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="java基础知识梳理（四）：流程控制"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h2 id="基本介绍"><a class="markdownIt-Anchor" href="#基本介绍"></a> 基本介绍</h2>
+<p>在程序中，程序运行的流程控制决定程序如何执行</p>
+<h2 id="总体分类"><a class="markdownIt-Anchor" href="#总体分类"></a> 总体分类</h2>
+<ol>
+<li>顺序控制</li>
+<li>分支控制</li>
+<li>循环控制</li>
+</ol>
+<h2 id="顺序控制"><a class="markdownIt-Anchor" href="#顺序控制"></a> 顺序控制</h2>
+<h3 id="概念"><a class="markdownIt-Anchor" href="#概念"></a> 概念</h3>
+<p>顺序控制是指从上到下逐行地执行，中间没有任何判断和跳转</p>
+<h3 id="细节"><a class="markdownIt-Anchor" href="#细节"></a> 细节</h3>
+<p>变量必须<strong>先定义再使用</strong>，即<strong>遵循顺序控制</strong></p>
+<p><strong>java定义变量时采用合法的前向引用</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 正确</span><br><span class="hljs-type">int</span> <span class="hljs-variable">num1</span> <span class="hljs-operator">=</span> <span class="hljs-number">12</span>;<br><span class="hljs-type">int</span> <span class="hljs-variable">num2</span> <span class="hljs-operator">=</span> num1 + <span class="hljs-number">2</span>;<br><br><span class="hljs-comment">// 错误</span><br><span class="hljs-type">int</span> <span class="hljs-variable">num2</span> <span class="hljs-operator">=</span> num1 + <span class="hljs-number">2</span>; <span class="hljs-comment">// 变量必须先定义后使用</span><br><span class="hljs-type">int</span> <span class="hljs-variable">num1</span> <span class="hljs-operator">=</span> <span class="hljs-number">12</span>;<br></code></pre></td></tr></table></figure>
+<h2 id="分支控制"><a class="markdownIt-Anchor" href="#分支控制"></a> 分支控制</h2>
+<h3 id="单分支if"><a class="markdownIt-Anchor" href="#单分支if"></a> 单分支if</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">if</span> (条件表达式) &#123;<br>    代码块; <span class="hljs-comment">// 当条件表达式为true时执行代码块的内容</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="双分支if-else"><a class="markdownIt-Anchor" href="#双分支if-else"></a> 双分支if-else</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">if</span> (条件表达式) &#123;<br>    代码块<span class="hljs-number">1</span>; <span class="hljs-comment">// 当条件表达式为true时执行代码块1</span><br>&#125; <span class="hljs-keyword">else</span> &#123;<br>    代码块<span class="hljs-number">2</span>; <span class="hljs-comment">// 当条件表达式为false时执行代码块2</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="多分支else-if"><a class="markdownIt-Anchor" href="#多分支else-if"></a> 多分支else-if</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">if</span> (条件表达式<span class="hljs-number">1</span>) &#123;<br>    代码块<span class="hljs-number">1</span>; <span class="hljs-comment">// 当条件表达式1为true时执行代码块1</span><br>&#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (条件表达式<span class="hljs-number">2</span>)) &#123;<br>    代码块<span class="hljs-number">2</span>; <span class="hljs-comment">// 当条件表达式2为true时执行代码块2</span><br>&#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (条件表达式<span class="hljs-number">3</span>)&#123;<br>    代码块<span class="hljs-number">3</span>; <span class="hljs-comment">// 当条件表达式3为true时执行代码块3</span><br>&#125; <span class="hljs-keyword">else</span> &#123;<br>    代码块<span class="hljs-number">4</span>; <span class="hljs-comment">// 其他情况执行代码块4；</span><br>&#125;<br><span class="hljs-comment">// 注:else-if分支可以有很多个，都遵循以上规则</span><br></code></pre></td></tr></table></figure>
+<h3 id="switch"><a class="markdownIt-Anchor" href="#switch"></a> switch</h3>
+<h4 id="基本语法"><a class="markdownIt-Anchor" href="#基本语法"></a> 基本语法</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">switch</span>(表达式) &#123; <span class="hljs-comment">// 表达式等于对应的常量值时，执行对应的代码块</span><br>    <span class="hljs-keyword">case</span> 常量<span class="hljs-number">1</span>:<br>        代码块<span class="hljs-number">1</span>；<br>        <span class="hljs-keyword">break</span>; <span class="hljs-comment">// break语句：直接跳出switch语句，如果没有</span><br>       		   <span class="hljs-comment">// break，会依次执行下面的case语句中的代码块，</span><br>        	   <span class="hljs-comment">// 直到执行break或者已经执行完所有的case语句，</span><br>        	   <span class="hljs-comment">// 退出switch</span><br>    <span class="hljs-keyword">case</span> 常量<span class="hljs-number">1</span>:<br>        代码块<span class="hljs-number">1</span>；<br>        <span class="hljs-keyword">break</span>;<br>    ……<br>    <span class="hljs-keyword">case</span> 常量n:<br>     	代码块n;<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">default</span>: <span class="hljs-comment">// 没有表达式对应的常量值时，就执行default代码块</span><br>        代码块;<br>        <span class="hljs-keyword">break</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="流程图"><a class="markdownIt-Anchor" href="#流程图"></a> 流程图</h4>
+<p><img src="/posts/2715/switch.webp" alt="img"></p>
+<h4 id="细节-2"><a class="markdownIt-Anchor" href="#细节-2"></a> 细节</h4>
+<ol>
+<li>
+<p>表达式的返回值应该是一个常量（byte、shoirt、int、char、enum、String等常量），且表达式和常量之间应该满足自动类型转换规则</p>
+</li>
+<li>
+<p><strong>switch穿透：没有break语句会执行下一个case语句中的代码块</strong></p>
+<p>break语句用来执行完一个case分支后使程序跳出switch语句块，如果没有写上break，程序会顺序执行到switch结尾</p>
+</li>
+<li>
+<p>default语句可选，没有defalut语句时相当于下面的语句</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">default</span>:<br>	<span class="hljs-keyword">break</span>;<br></code></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="嵌套分支"><a class="markdownIt-Anchor" href="#嵌套分支"></a> 嵌套分支</h3>
+<p>顾名思义，嵌套分支就是在一个分支结构里又嵌套了另外一个完整的分支结构，里面的分支结构称为内层分支、内层分支外面的分支结构称为外层分支</p>
+<p>注：嵌套分支结构内外层分支可以是<strong>任何一种分支结构</strong>,且<strong>内外层是相对而言</strong>的</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">if</span> (条件表达式<span class="hljs-number">1</span>) &#123; <span class="hljs-comment">// else-if分支 外层分支</span><br>    <span class="hljs-keyword">if</span> (条件表达式<span class="hljs-number">2</span>) &#123; <span class="hljs-comment">// if分支 内层分支</span><br>        代码块<span class="hljs-number">1</span>;<br>    &#125;<br>&#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (条件表达式<span class="hljs-number">3</span>) &#123; <span class="hljs-comment">// else-if分支 外层分支</span><br>    <span class="hljs-keyword">if</span> (条件表达式<span class="hljs-number">4</span>) &#123; <span class="hljs-comment">// if-else分支 内层分支</span><br>         代码块<span class="hljs-number">2</span>;<br>    &#125; <span class="hljs-keyword">else</span> &#123; <span class="hljs-comment">// if-else分支 内层分支</span><br>         代码块<span class="hljs-number">3</span>;<br>    &#125;<br>&#125; <span class="hljs-keyword">else</span> &#123; <span class="hljs-comment">// else-if分支 外层分支</span><br>     <span class="hljs-keyword">switch</span>() &#123; <span class="hljs-comment">// switch分支 内层分支</span><br>         <span class="hljs-keyword">case</span> 常量值<span class="hljs-number">1</span>:<br>             代码块<span class="hljs-number">4</span>;<br>             <span class="hljs-keyword">break</span>;<br>          ……<br>         <span class="hljs-keyword">default</span>:<br>           代码块<span class="hljs-number">5</span>;<br>           <span class="hljs-keyword">break</span>; <br>     &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="循环控制"><a class="markdownIt-Anchor" href="#循环控制"></a> 循环控制</h2>
+<h3 id="基本概念"><a class="markdownIt-Anchor" href="#基本概念"></a> 基本概念</h3>
+<p>可以让程序循环执行的控制语句</p>
+<h3 id="for"><a class="markdownIt-Anchor" href="#for"></a> for</h3>
+<h4 id="基本语法-2"><a class="markdownIt-Anchor" href="#基本语法-2"></a> 基本语法</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">for</span> (循环变量初始化; 循环条件; 循环变量迭代) &#123;<br>    循环代码块;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="流程图-2"><a class="markdownIt-Anchor" href="#流程图-2"></a> 流程图</h4>
+<p><img src="/posts/2715/for.webp" alt="for"></p>
+<h4 id="执行过程"><a class="markdownIt-Anchor" href="#执行过程"></a> 执行过程</h4>
+<ol>
+<li>循环变量初始化，赋予循环变量初值</li>
+<li>判断循环条件是否成立，如果成立，执行for循环体中的代码块，循环变量迭代，再次判断循环条件是否成立</li>
+<li>重复1、2步，直到循环条件不成立，退出循环</li>
+</ol>
+<h4 id="细节-3"><a class="markdownIt-Anchor" href="#细节-3"></a> 细节</h4>
+<ol>
+<li>循环条件是返回一个boolean值的表达式</li>
+<li>for(循环变量初始化; 循环条件; 循环变量迭代)中的初始化和变量迭代可以写到其他地方（或省略），但是两边的分号不能省略</li>
+<li>循环初始值可以有多条初始化语句，但要求初始化语句之间用逗号隔开，循环变量迭代也可以有多条变量迭代语句，迭代语句之间也要求用逗号隔开</li>
+</ol>
+<h3 id="while"><a class="markdownIt-Anchor" href="#while"></a> while</h3>
+<h4 id="基本语法-3"><a class="markdownIt-Anchor" href="#基本语法-3"></a> 基本语法</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">while</span> (循环条件) &#123;<br>    循环代码块;<br>    循环变量迭代;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="流程图-3"><a class="markdownIt-Anchor" href="#流程图-3"></a> 流程图</h4>
+<p><img src="/posts/2715/u=937427180,2378382862&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG.jpeg" alt="img"></p>
+<h4 id="执行过程-2"><a class="markdownIt-Anchor" href="#执行过程-2"></a> 执行过程</h4>
+<ol>
+<li>先判断循环条件是否成立，如果成立，进入循环体，执行循环体语句</li>
+<li>执行完毕循环体语句后，再次判断循环条件是否成立，如果成立，则重复第2步，直到循环条件不成立，退出while循环</li>
+</ol>
+<h4 id="细节-4"><a class="markdownIt-Anchor" href="#细节-4"></a> 细节</h4>
+<ol>
+<li>
+<p>循环条件是一个返回布尔值的表达式</p>
+</li>
+<li>
+<p>while循环时先判断再执行语句</p>
+</li>
+</ol>
+<h3 id="do-while"><a class="markdownIt-Anchor" href="#do-while"></a> do-while</h3>
+<h4 id="基本语法-4"><a class="markdownIt-Anchor" href="#基本语法-4"></a> 基本语法</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">do</span> &#123;<br>    循环体语句;<br>    循环变量迭代;<br>&#125; <span class="hljs-keyword">while</span>(循环条件);<br></code></pre></td></tr></table></figure>
+<h4 id="流程图-4"><a class="markdownIt-Anchor" href="#流程图-4"></a> 流程图</h4>
+<p><img src="java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86%EF%BC%88%E5%9B%9B%EF%BC%89%EF%BC%9A%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/src=http%253A%252F%252Fa3.att.hudong.com%252F01%252F20%252F01300542845232141407205561545_s.png&amp;refer=http%253A%252F%252Fa3.att.hudong.png" alt="img"></p>
+<h4 id="执行过程-3"><a class="markdownIt-Anchor" href="#执行过程-3"></a> 执行过程</h4>
+<ol>
+<li>先执行循环体语句，执行完毕后再判断循环条件是否成立，如果成立，则继续执行循环体语句</li>
+<li>重复1，直到循环体语句不成立，退出循环</li>
+</ol>
+<h4 id="细节-5"><a class="markdownIt-Anchor" href="#细节-5"></a> 细节</h4>
+<ol>
+<li>与while语句不同，do-while先执行循环体语句，再判断循环条件</li>
+<li>do-while语句最后有一个分号<code>;</code></li>
+</ol>
+<h3 id="多重循环"><a class="markdownIt-Anchor" href="#多重循环"></a> 多重循环</h3>
+<h4 id="介绍"><a class="markdownIt-Anchor" href="#介绍"></a> 介绍</h4>
+<p>多重循环也叫循环嵌套，是将一个循环放在另外一个循环体内的复合语句，<strong>for、while、do-while都可以作为外层循环和内层循环</strong></p>
+<h4 id="代码示意"><a class="markdownIt-Anchor" href="#代码示意"></a> 代码示意</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">for</span> (循环变量初始化; 循环条件; 循环变量迭代) &#123;<br>    <span class="hljs-keyword">while</span> (循环条件) &#123;<br>    	<span class="hljs-keyword">do</span> &#123;<br>        循环体语句;<br>		循环变量迭代;<br>		&#125; <span class="hljs-keyword">while</span>(循环条件);<br>	&#125;<br>    ……<br>&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="细节-6"><a class="markdownIt-Anchor" href="#细节-6"></a> 细节</h4>
+<ol>
+<li>多重循环就是把内层循环当成外层循环的循环体，只有内层循环的循环条件为false时，才会完全跳出内层循环，这时进入<strong>下一次外层循环</strong></li>
+<li>理论上多重循环可以嵌套无数层，但是一般建议使用两层，最多不要超过三层，否则代码的可读性很差</li>
+</ol>
+<h2 id="break和continue"><a class="markdownIt-Anchor" href="#break和continue"></a> break和continue</h2>
+<h3 id="break"><a class="markdownIt-Anchor" href="#break"></a> break</h3>
+<h4 id="介绍-2"><a class="markdownIt-Anchor" href="#介绍-2"></a> 介绍</h4>
+<p>break语句用于<strong>终止某个语句块的执行</strong>，一般用在switch语句或者循环控制（for、while、do-while）语句中</p>
+<h4 id="基本语法-5"><a class="markdownIt-Anchor" href="#基本语法-5"></a> 基本语法</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 假定该括号在switch、for、while、do-while中</span><br>&#123;<br>    ……<br>    <span class="hljs-keyword">break</span>; <span class="hljs-comment">// break后的语句不再执行，直接跳出</span><br>    ……<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="continue"><a class="markdownIt-Anchor" href="#continue"></a> continue</h3>
+<h4 id="介绍-3"><a class="markdownIt-Anchor" href="#介绍-3"></a> 介绍</h4>
+<p>continue可用于循环语句（for、while、for-while）的循环体中，用于终止本次循环，直接进行下一次循环</p>
+<h4 id="基本语法-6"><a class="markdownIt-Anchor" href="#基本语法-6"></a> 基本语法</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 假定该括号for、while、do-while中</span><br>&#123;<br>    ……<br>    <span class="hljs-keyword">continue</span>; <span class="hljs-comment">// continue后的语句不再执行，直接进入下一次循环</span><br>    ……<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="label标签"><a class="markdownIt-Anchor" href="#label标签"></a> label标签</h3>
+<h4 id="基本介绍-2"><a class="markdownIt-Anchor" href="#基本介绍-2"></a> 基本介绍</h4>
+<p>label标签可以给循环做标签标记，这样break可以指定跳出哪层循环、continue可以指定直接执行下一次哪层循环</p>
+<h4 id="基本语法-7"><a class="markdownIt-Anchor" href="#基本语法-7"></a> 基本语法</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java">label1: <span class="hljs-comment">// 标签1</span><br><span class="hljs-keyword">for</span> (循环变量初始化; 循环条件; 循环变量迭代) &#123; <span class="hljs-comment">// 循环1</span><br>    label2: <span class="hljs-comment">// 标签2</span><br>    <span class="hljs-keyword">for</span>(循环变量初始化; 循环条件; 循环变量迭代) &#123; <span class="hljs-comment">// 循环2</span><br>        label3:<br>        <span class="hljs-keyword">for</span> (循环变量初始化; 循环条件; 循环变量迭代) &#123; <span class="hljs-comment">// 循环3</span><br>              循环体语句;<br>              <span class="hljs-comment">// 这里假设break和continue只会执行其中一个</span><br>        	  <span class="hljs-keyword">break</span> label1; <span class="hljs-comment">// 直接跳出循环1</span><br>              <span class="hljs-keyword">continue</span> label2; <span class="hljs-comment">// 直接进入循环2的下一次循环</span><br>        &#125;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="细节-7"><a class="markdownIt-Anchor" href="#细节-7"></a> 细节</h4>
+<ol>
+<li><strong>假如break和continue没有指定标签，则默认作用于最近的循环体</strong></li>
+<li>标签名不一定非要是label1、label2……，名称可自定义</li>
+<li>应尽量少使用标签，因为破坏了顺序控制结构和可读性</li>
+</ol>
+<h2 id="return"><a class="markdownIt-Anchor" href="#return"></a> return</h2>
+<h3 id="介绍-4"><a class="markdownIt-Anchor" href="#介绍-4"></a> 介绍</h3>
+<p>return使用在方法中，表示退出所在的方法</p>
+<h4 id="基本语法-8"><a class="markdownIt-Anchor" href="#基本语法-8"></a> 基本语法</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 假设为方法的括号</span><br>&#123;<br>    ……<br>    <span class="hljs-keyword">return</span>; <span class="hljs-comment">// 直接退出方法</span><br>    ……<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="细节-8"><a class="markdownIt-Anchor" href="#细节-8"></a> 细节</h3>
+<ol>
+<li><strong>如果return写在main方法中，表示退出整个程序</strong></li>
+<li>return后面可以有返回值，但返回的实际内容应该与方法声明的返回值类型匹配或者可以进行自动类型转换</li>
+<li>若方法的返回值类型声明为void，则可以不写返回值、甚至可以省略return，省略return的作用效果等价于return在方法体的最后一行</li>
+</ol>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Java/">Java</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/bfd1/"><img class="prev-cover" src="/img/cover/cover45.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">java基础知识梳理（五）：数组</div></div></a></div><div class="next-post pull-right"><a href="/posts/18ad/"><img class="next-cover" src="/img/cover/cover25.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">设置远程连接redis</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/aa32/" title="Arrays常用方法详解"><img class="cover" src="/img/cover/cover49.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-18</div><div class="title">Arrays常用方法详解</div></div></a></div><div><a href="/posts/41b7/" title="BigInteger和BigDecimal常用方法详解"><img class="cover" src="/img/cover/cover50.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-18</div><div class="title">BigInteger和BigDecimal常用方法详解</div></div></a></div><div><a href="/posts/b663/" title="BufferedReader和BufferedWriter常用方法详解"><img class="cover" src="/img/cover/cover51.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-18</div><div class="title">BufferedReader和BufferedWriter常用方法详解</div></div></a></div><div><a href="/posts/3a2/" title="Calendar类常用方法详解"><img class="cover" src="/img/cover/cover52.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-18</div><div class="title">Calendar类常用方法详解</div></div></a></div><div><a href="/posts/ba8/" title="Collections工具类常用方法详解"><img class="cover" src="/img/cover/cover54.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-18</div><div class="title">Collections工具类常用方法详解</div></div></a></div><div><a href="/posts/35b1/" title="Collection接口方法详解"><img class="cover" src="/img/cover/cover53.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-18</div><div class="title">Collection接口方法详解</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/tux.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">神笔码农</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">64</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/programmer-liao"><i class="fab fa-github"></i><span>follow me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到神笔码农的小站，我在这里分享知识</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text"> 基本介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E4%BD%93%E5%88%86%E7%B1%BB"><span class="toc-number">2.</span> <span class="toc-text"> 总体分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E6%8E%A7%E5%88%B6"><span class="toc-number">3.</span> <span class="toc-text"> 顺序控制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">3.1.</span> <span class="toc-text"> 概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%86%E8%8A%82"><span class="toc-number">3.2.</span> <span class="toc-text"> 细节</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E6%8E%A7%E5%88%B6"><span class="toc-number">4.</span> <span class="toc-text"> 分支控制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E5%88%86%E6%94%AFif"><span class="toc-number">4.1.</span> <span class="toc-text"> 单分支if</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E5%88%86%E6%94%AFif-else"><span class="toc-number">4.2.</span> <span class="toc-text"> 双分支if-else</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E5%88%86%E6%94%AFelse-if"><span class="toc-number">4.3.</span> <span class="toc-text"> 多分支else-if</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#switch"><span class="toc-number">4.4.</span> <span class="toc-text"> switch</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-number">4.4.1.</span> <span class="toc-text"> 基本语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-number">4.4.2.</span> <span class="toc-text"> 流程图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%86%E8%8A%82-2"><span class="toc-number">4.4.3.</span> <span class="toc-text"> 细节</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B5%8C%E5%A5%97%E5%88%86%E6%94%AF"><span class="toc-number">4.5.</span> <span class="toc-text"> 嵌套分支</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E6%8E%A7%E5%88%B6"><span class="toc-number">5.</span> <span class="toc-text"> 循环控制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">5.1.</span> <span class="toc-text"> 基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#for"><span class="toc-number">5.2.</span> <span class="toc-text"> for</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95-2"><span class="toc-number">5.2.1.</span> <span class="toc-text"> 基本语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B%E5%9B%BE-2"><span class="toc-number">5.2.2.</span> <span class="toc-text"> 流程图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="toc-number">5.2.3.</span> <span class="toc-text"> 执行过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%86%E8%8A%82-3"><span class="toc-number">5.2.4.</span> <span class="toc-text"> 细节</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#while"><span class="toc-number">5.3.</span> <span class="toc-text"> while</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95-3"><span class="toc-number">5.3.1.</span> <span class="toc-text"> 基本语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B%E5%9B%BE-3"><span class="toc-number">5.3.2.</span> <span class="toc-text"> 流程图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B-2"><span class="toc-number">5.3.3.</span> <span class="toc-text"> 执行过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%86%E8%8A%82-4"><span class="toc-number">5.3.4.</span> <span class="toc-text"> 细节</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#do-while"><span class="toc-number">5.4.</span> <span class="toc-text"> do-while</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95-4"><span class="toc-number">5.4.1.</span> <span class="toc-text"> 基本语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B%E5%9B%BE-4"><span class="toc-number">5.4.2.</span> <span class="toc-text"> 流程图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B-3"><span class="toc-number">5.4.3.</span> <span class="toc-text"> 执行过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%86%E8%8A%82-5"><span class="toc-number">5.4.4.</span> <span class="toc-text"> 细节</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E9%87%8D%E5%BE%AA%E7%8E%AF"><span class="toc-number">5.5.</span> <span class="toc-text"> 多重循环</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">5.5.1.</span> <span class="toc-text"> 介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E7%A4%BA%E6%84%8F"><span class="toc-number">5.5.2.</span> <span class="toc-text"> 代码示意</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%86%E8%8A%82-6"><span class="toc-number">5.5.3.</span> <span class="toc-text"> 细节</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#break%E5%92%8Ccontinue"><span class="toc-number">6.</span> <span class="toc-text"> break和continue</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#break"><span class="toc-number">6.1.</span> <span class="toc-text"> break</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D-2"><span class="toc-number">6.1.1.</span> <span class="toc-text"> 介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95-5"><span class="toc-number">6.1.2.</span> <span class="toc-text"> 基本语法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#continue"><span class="toc-number">6.2.</span> <span class="toc-text"> continue</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D-3"><span class="toc-number">6.2.1.</span> <span class="toc-text"> 介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95-6"><span class="toc-number">6.2.2.</span> <span class="toc-text"> 基本语法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#label%E6%A0%87%E7%AD%BE"><span class="toc-number">6.3.</span> <span class="toc-text"> label标签</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D-2"><span class="toc-number">6.3.1.</span> <span class="toc-text"> 基本介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95-7"><span class="toc-number">6.3.2.</span> <span class="toc-text"> 基本语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%86%E8%8A%82-7"><span class="toc-number">6.3.3.</span> <span class="toc-text"> 细节</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#return"><span class="toc-number">7.</span> <span class="toc-text"> return</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D-4"><span class="toc-number">7.1.</span> <span class="toc-text"> 介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95-8"><span class="toc-number">7.1.1.</span> <span class="toc-text"> 基本语法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%86%E8%8A%82-8"><span class="toc-number">7.2.</span> <span class="toc-text"> 细节</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/ffe3/" title="java基础知识梳理（三）：运算符"><img src="/img/cover/cover43.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="java基础知识梳理（三）：运算符"/></a><div class="content"><a class="title" href="/posts/ffe3/" title="java基础知识梳理（三）：运算符">java基础知识梳理（三）：运算符</a><time datetime="2023-08-18T05:55:53.988Z" title="发表于 2023-08-18 13:55:53">2023-08-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/76ce/" title="java基础知识梳理（二）：变量、数据类型"><img src="/img/cover/cover42.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="java基础知识梳理（二）：变量、数据类型"/></a><div class="content"><a class="title" href="/posts/76ce/" title="java基础知识梳理（二）：变量、数据类型">java基础知识梳理（二）：变量、数据类型</a><time datetime="2023-08-18T05:55:53.986Z" title="发表于 2023-08-18 13:55:53">2023-08-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/e960/" title="InputStreamReader和OutputStreamWriter常用方法详解"><img src="/img/cover/cover62.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="InputStreamReader和OutputStreamWriter常用方法详解"/></a><div class="content"><a class="title" href="/posts/e960/" title="InputStreamReader和OutputStreamWriter常用方法详解">InputStreamReader和OutputStreamWriter常用方法详解</a><time datetime="2023-08-18T05:55:53.985Z" title="发表于 2023-08-18 13:55:53">2023-08-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/b442/" title="firewall-cmd命令学习记录"><img src="/img/cover/cover61.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="firewall-cmd命令学习记录"/></a><div class="content"><a class="title" href="/posts/b442/" title="firewall-cmd命令学习记录">firewall-cmd命令学习记录</a><time datetime="2023-08-18T05:55:53.984Z" title="发表于 2023-08-18 13:55:53">2023-08-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/2415/" title="File类常用方法详解"><img src="/img/cover/cover58.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="File类常用方法详解"/></a><div class="content"><a class="title" href="/posts/2415/" title="File类常用方法详解">File类常用方法详解</a><time datetime="2023-08-18T05:55:53.981Z" title="发表于 2023-08-18 13:55:53">2023-08-18</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2023 By 神笔码农</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

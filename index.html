@@ -48,7 +48,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2023-08-17 21:27:50'
+  postUpdate: '2023-08-18 17:01:59'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -144,139 +144,252 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css"/>
 <style>#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags:before {content:"\A";
   white-space: pre;}#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags > .article-meta__separator{display:none}</style>
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><link rel="stylesheet" href="/css/load.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js/pace.min.js"></script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/tux.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">神笔码农的小站</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/posts/18ad/" title="设置远程连接redis"><img class="post_bg" src="/img/cover/cover25.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="设置远程连接redis"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/18ad/" title="设置远程连接redis">设置远程连接redis</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-17T12:41:28.278Z" title="发表于 2023-08-17 20:41:28">2023-08-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Redis/">Redis</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Redis/">Redis</a></span></div><div class="content"> 设置远程连接redis
- 修改配置文件
-这里假设已经在服务器安装好了redis环境，但是我们现在还无法连接服务器上的redis，这时我们编辑redis.conf文件
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><link rel="stylesheet" href="/css/load.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js/pace.min.js"></script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/tux.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">64</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">神笔码农的小站</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/posts/ffe3/" title="java基础知识梳理（三）：运算符"><img class="post_bg" src="/img/cover/cover43.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="java基础知识梳理（三）：运算符"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/ffe3/" title="java基础知识梳理（三）：运算符">java基础知识梳理（三）：运算符</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-18T05:55:53.988Z" title="发表于 2023-08-18 13:55:53">2023-08-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Java/">Java</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Java/">Java</a></span></div><div class="content"> 运算符介绍
+运算符是一种特殊的符号，用以表示数据的运算、赋值和比较等
+ 运算符分类
+java运算符大致可以分为以下六种
 
-1vim redis.conf
-将下面这行注销即可
+算数运算符
+赋值运算符
+逻辑运算符
+位运算符
+三元运算符
 
-再次连接，可以看到连接成功
+ 算数运算符
+ 总体概括
 
-但是这时候，使用不了命令
+加号+
+减号-
+乘号*
+除号/
+取模（取余）%
+自增++
+自减--
 
-提示如下：
-123(error) DENIED Redis is running in protected mode because protected mode is enabled and no password is set for the default user. In this mode connections are only accepted from the loopback interface. If you want to connect from external computers to Redis you may adopt one of the following solutions: 1) Just disable protected mode sending the comm ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/d4a2/" title="windows安装redis"><img class="post_bg" src="/img/cover/cover26.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="windows安装redis"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/d4a2/" title="windows安装redis">windows安装redis</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-17T12:41:28.276Z" title="发表于 2023-08-17 20:41:28">2023-08-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Redis/">Redis</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Redis/">Redis</a></span></div><div class="content"> 下载
-进入github下载地址：Releases · tporadowski/redis · GitHub
-点击下载
+减号-、乘号*使用上基本和现实生活中差不多，不做赘述
+ 加号细节
+当加号+两边有一边是字符串时，作用为对字符串进行拼接
+12345 int a = 10;String b = &quot;hello&quot;;String c = a + b; System.out.println(&quot;hello&quot; + 10); // hello10System.out.println(c); // hello10
+ 除号细节
 
- 解压
-解压后文件如下
+整型变量之间相除，只保留整数位
 
- 添加环境变量
-为了能够全局使用redis命令
-我们添加环境变量
- 复制路径
+1int a = 5 / 2 //结果为2
 
- 添加环境变量
+浮点数和整型变量相除，总会保留小数位
 
- 测试能否使用
-打开我们的终端工具，我用的是powershell
-1redis-server
+12double a = 5.0 / 2 //结果为2.5double a = 4.0 / 2 //结果为2.0
+ 取模（取余）细节
+取模的本质：a%b=a-a ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/76ce/" title="java基础知识梳理（二）：变量、数据类型"><img class="post_bg" src="/img/cover/cover42.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="java基础知识梳理（二）：变量、数据类型"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/76ce/" title="java基础知识梳理（二）：变量、数据类型">java基础知识梳理（二）：变量、数据类型</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-18T05:55:53.986Z" title="发表于 2023-08-18 13:55:53">2023-08-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Java/">Java</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Java/">Java</a></span></div><div class="content"> 变量概念
+变量相当于内存中一个数据存储空间的表示，通过变量名我们可以访问内存中存储的数据
+ 变量定义
+12int a; // 声明变量a = 10; // 变量赋值
+或
+1int a = 10; // 定义变量
+ 变量注意事项
 
-正常运行，安装成功！
-</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/54a/" title="redis的启动和停止"><img class="post_bg" src="/img/cover/cover24.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="redis的启动和停止"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/54a/" title="redis的启动和停止">redis的启动和停止</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-17T12:41:28.274Z" title="发表于 2023-08-17 20:41:28">2023-08-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Redis/">Redis</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Redis/">Redis</a></span></div><div class="content"> 配置环境变量
-为了能够全局使用redis的相关命令，我们配置环境变量(但是貌似/usr/local/bin已经在环境变量中了)
-1echo &quot;export PATH=$PATH:/usr/local/bin&quot; &gt;&gt; /etc/profile
- 启动服务端
- 前台启动
-1redis-server
+变量表示内存中的一个存储区域，不同类型的变量在内存中占用的内存空间大小不同
+变量的三要素，缺一不可：类型、名称、值
+变量的数据可以在同一类型范围不断变化
+变量必须先声明、后使用
+同一个作用域内变量名不能重名，但不同作用域允许有相同变量名存在
+基本数据类型需要赋值后才能使用
 
- 前台启动退出方法
-按CTRL+C即可退出
+ 数据类型
+每一种数据都定义了明确的数据类型，在内存中分配了不同大小的内存空间
 
- 后台启动
- 拷贝redis.conf
-首先我们拷贝一份redis.conf到~/redis目录，这也是对redis.conf配置文件的一种备份，之后我们操作的都是拷贝的redis.conf配置文件
-12mkdir -v ~/rediscp -v ~/redis-stable/redis.conf ~/redis/redis.conf 
- 设置后台启动
-修改我们的redis.conf文件，设置后台启动
-1vim ~/redis/redis.conf
-将daeonize设置为yes
-
- 后台启动
-参数带上我们的配置文件名
-1redis-server ~/redis/redis.conf
-没有提示信息，但是我们可以查看 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/a222/" title="redis操作之库操作"><img class="post_bg" src="/img/cover/cover23.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="redis操作之库操作"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/a222/" title="redis操作之库操作">redis操作之库操作</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-17T12:41:28.273Z" title="发表于 2023-08-17 20:41:28">2023-08-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Redis/">Redis</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Redis/">Redis</a></span></div><div class="content">在redis中，默认有19个库，默认进入的数据库为0号库
- select
-用于切换数据库，返回值为操作状态
-123456789101112131415161718# 默认操作为0号库，向0号库中添加3条数据127.0.0.1:6379&gt; set k1 value1OK127.0.0.1:6379&gt; set k2 value2OK127.0.0.1:6379&gt; set k3 value3OK# 查看0号库的所有key127.0.0.1:6379&gt; keys *1) &quot;k3&quot;2) &quot;k2&quot;3) &quot;k1&quot;# 切换到1号库127.0.0.1:6379&gt; select 1OK# 查看1号库中所有key127.0.0.1:6379[1]&gt; keys *(empty array)
- dbsize
-查看当前库的key数量
-返回值是当前库的key数量
-123456789# 查看1号库的key数量127.0.0.1:6379[1]&gt; dbsize(integer) 0# 切换到0号库127.0.0.1:6 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/1d65/" title="redis操作之Zset操作"><img class="post_bg" src="/img/cover/cover22.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="redis操作之Zset操作"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/1d65/" title="redis操作之Zset操作">redis操作之Zset操作</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-17T12:41:28.270Z" title="发表于 2023-08-17 20:41:28">2023-08-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Redis/">Redis</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Redis/">Redis</a></span></div><div class="content">与set集合不同的是，zset是有序的
- zadd
-将一个或多个member元素及其score值加入到有序集合key当中
-语法：zadd &lt;key&gt; &lt;score1&gt; &lt;value1&gt; &lt;score2&gt; &lt;value2&gt; ……
-1234567# 向top中添加以下三个元素# value score# c++ 100# java 200# javascript 150127.0.0.1:6379&gt; zadd top 100 c 200 java 150 javascript(integer) 3
- zrange
-返回有序集合key中，下标在start和stop之间的元素（包括start和stop）
-参数带withscores则表示将分数和值一起返回到结果集中
-start=0，stop=-1表示取出zset集合中所有的元素
-返回结果集为升序排序
-语法：zrange &lt;key&gt; &lt;start&gt; &lt;stop&gt; [withscores]
-12345678910111213141516171819 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/d776/" title="redis操作之String操作"><img class="post_bg" src="/img/cover/cover21.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="redis操作之String操作"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/d776/" title="redis操作之String操作">redis操作之String操作</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-17T12:41:28.268Z" title="发表于 2023-08-17 20:41:28">2023-08-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Redis/">Redis</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Redis/">Redis</a></span></div><div class="content"> set和get
-set：向库中添加string键值对
-多次添加相同key的记录时，会覆盖原来键对应的值
-get：取出key对应的值
-如果key对应的值不存在，返回nil
-123456789101112131415161718192021# 添加两条记录127.0.0.1:6379&gt; set k1 v1OK127.0.0.1:6379&gt; set k2 v2OK# 查看当前库中所有的key127.0.0.1:6379&gt; keys *1) &quot;k2&quot;2) &quot;k1&quot;# 查看k1对应的值127.0.0.1:6379&gt; get k1&quot;v1&quot;# 添加键为k1的一条记录127.0.0.1:6379&gt; set k1 value1OK# 查看k1对应的值127.0.0.1:6379&gt; get k1&quot;value1&quot;# 获取k3对应的值127.0.0.1:6379&gt; get k3(nil)
- setnx
-向库中添加string键值对，只有key不存在时才能设置，key已经存在时就不能设置， ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/167f/" title="redis操作之set操作"><img class="post_bg" src="/img/cover/cover20.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="redis操作之set操作"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/167f/" title="redis操作之set操作">redis操作之set操作</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-17T12:41:28.267Z" title="发表于 2023-08-17 20:41:28">2023-08-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Redis/">Redis</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Redis/">Redis</a></span></div><div class="content">set集合是无序、key不可重复的
- sadd
-添加一个sadd集合
-语法：sadd &lt;key&gt; &lt;value1&gt; &lt;value2&gt;
-123# 新建一个set集合set1127.0.0.1:6379&gt; sadd set1 v1 v2 v3 v4(integer) 4
- smembers
-查看set集合中所有元素
-123456# 查看set1集合中所有元素127.0.0.1:6379&gt; smembers set11) &quot;v3&quot;2) &quot;v2&quot;3) &quot;v1&quot;4) &quot;v4&quot;
- sismember
-判断set集合中是否存在某值
-123456# 判断set1集合中是否存在v1127.0.0.1:6379&gt; sismember set1 v1(integer) 1# 判断set1集合中是否存在v5127.0.0.1:6379&gt; sismember set1 v5(integer) 0
- scard
-返回set集合中元素的个数
-123# 返回set1集合中元素的个 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/d1b6/" title="redis操作之List操作"><img class="post_bg" src="/img/cover/cover19.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="redis操作之List操作"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/d1b6/" title="redis操作之List操作">redis操作之List操作</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-17T12:41:28.265Z" title="发表于 2023-08-17 20:41:28">2023-08-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Redis/">Redis</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Redis/">Redis</a></span></div><div class="content"> lpush
-从左边插入一个或多个值，新list默认为空
-语法：lpush &lt;key1&gt; &lt;value1&gt; &lt;value2&gt; …… &lt;value&gt;
-123# 添加一个新的list键值对，从左边插入127.0.0.1:6379&gt; lpush k1 v1 v2 v3(integer) 3
- rpush
-从右边插入一个或多个值，新list默认为空
-语法：rpush &lt;key1&gt; &lt;value1&gt; &lt;value2&gt; …… &lt;value&gt;
-123# 添加一个新的list键值对,从右边插入127.0.0.1:6379&gt; rpush k2 v1 v2 v3(integer) 3
- lrange
-取出key对应指定范围的list值
-语法：lrange &lt;key&gt; &lt;起始位置&gt; &lt;结束位置&gt;（包含起始位置和结束位置）
-如果起始位置=0，结束位置=-1，表示取出key对应的所有list元素值
-123456789101112131415# 取出k1对应0~1范围的l ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/6041/" title="redis操作之key键操作"><img class="post_bg" src="/img/cover/cover18.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="redis操作之key键操作"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/6041/" title="redis操作之key键操作">redis操作之key键操作</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-17T12:41:28.253Z" title="发表于 2023-08-17 20:41:28">2023-08-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Redis/">Redis</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Redis/">Redis</a></span></div><div class="content"> keys *
-查看当前库所有key
-返回值：为当前库中所有key
-123456789101112131415# 现在redis中没有数据127.0.0.1:6379&gt; keys *(empty list or set)# 向redis中放三条数据127.0.0.1:6379&gt; set k1 value1OK127.0.0.1:6379&gt; set k2 value2OK127.0.0.1:6379&gt; set k3 value3OK# 查看当前库中所有key127.0.0.1:6379&gt; keys *1) &quot;k2&quot;2) &quot;k3&quot;3) &quot;k1&quot;
- exists
-判断key是否存在
-返回值：
+ 整数类型
+ byte[字节]
+范围：-27~27-1
+ short[短整型]
+范围：-215~215-1
+ int[整型]
+范围：-231~231-1
+ long[长整型]
+范围：-263~263-1
+值得一提的是：BigInt类可以存放更大位数的整数
+ 细节
 
 
-返回1说明存在
+java整数类型有固定的范围和字段长度，不受操作系统的影响，来保证java程序的可移植性
 
 
-返回0说明不存在
+java默认整数常量为int型，声明long型要 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/e960/" title="InputStreamReader和OutputStreamWriter常用方法详解"><img class="post_bg" src="/img/cover/cover62.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="InputStreamReader和OutputStreamWriter常用方法详解"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/e960/" title="InputStreamReader和OutputStreamWriter常用方法详解">InputStreamReader和OutputStreamWriter常用方法详解</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-18T05:55:53.985Z" title="发表于 2023-08-18 13:55:53">2023-08-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Java/">Java</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Java/">Java</a></span></div><div class="content">InputStreamReader和OutputStreamWriter是字符流，InputStreamReader继承自Reader类，因此Reader字符流常用的方法它都有，OutputStreamWriter继承自Writer类，因此Writer字符流常用的方法它都有，InputStreamReader和OutputStreamWriter常用的功能是做转换流，将InputStream字节流转换成Reader字符流，进而包装成BufferedReader流，将OuterputStreamWriter字节流转换成Writer字符流，进而包装成BufferedWriter流
+ InputStreamReader
+ InputStreamReader构造器
+有以下几种常用的构造器
 
 
-123456# 判断k1是否存在127.0.0.1:6379&gt; exists k1(integer) 1# 判断key4是否存在127.0.0.1:6379&gt; exists key4(integer) 0
- type
-查看键对应的值的类型
-返回值：键对应值的 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/6f4c/" title="redis操作之hash操作"><img class="post_bg" src="/img/cover/cover17.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="redis操作之hash操作"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/6f4c/" title="redis操作之hash操作">redis操作之hash操作</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-17T12:41:28.250Z" title="发表于 2023-08-17 20:41:28">2023-08-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Redis/">Redis</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Redis/">Redis</a></span></div><div class="content"> hset
-向哈希key中添加字段field和字段映射的值value
-语法：hset &lt;key&gt; &lt;field&gt; &lt;value&gt;
-123456789# 向哈希user中添加一个字段name和字段对应的值ikun127.0.0.1:6379&gt; hset user name ikun(integer) 1# 向哈希user中添加一个字段age和字段对应的值18127.0.0.1:6379&gt; hset user age 18(integer) 1# 向哈希user中添加一个字段hobby和字段对应的值rap127.0.0.1:6379&gt; hset user hobby rap(integer) 1
- hget
-从哈希key中取出一个字段field对应的值value
-123456789# 取出user中的name字段对应的值127.0.0.1:6379&gt; hget user name&quot;ikun&quot;# 取出user中的age字段对应的值127.0.0.1:6379&gt; hget user age&quot;18&q ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><a class="page-number" href="/page/3/#content-inner">3</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/tux.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">神笔码农</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/programmer-liao"><i class="fab fa-github"></i><span>follow me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到神笔码农的小站，我在这里分享知识</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/18ad/" title="设置远程连接redis"><img src="/img/cover/cover25.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="设置远程连接redis"/></a><div class="content"><a class="title" href="/posts/18ad/" title="设置远程连接redis">设置远程连接redis</a><time datetime="2023-08-17T12:41:28.278Z" title="发表于 2023-08-17 20:41:28">2023-08-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/d4a2/" title="windows安装redis"><img src="/img/cover/cover26.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="windows安装redis"/></a><div class="content"><a class="title" href="/posts/d4a2/" title="windows安装redis">windows安装redis</a><time datetime="2023-08-17T12:41:28.276Z" title="发表于 2023-08-17 20:41:28">2023-08-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/54a/" title="redis的启动和停止"><img src="/img/cover/cover24.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="redis的启动和停止"/></a><div class="content"><a class="title" href="/posts/54a/" title="redis的启动和停止">redis的启动和停止</a><time datetime="2023-08-17T12:41:28.274Z" title="发表于 2023-08-17 20:41:28">2023-08-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/a222/" title="redis操作之库操作"><img src="/img/cover/cover23.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="redis操作之库操作"/></a><div class="content"><a class="title" href="/posts/a222/" title="redis操作之库操作">redis操作之库操作</a><time datetime="2023-08-17T12:41:28.273Z" title="发表于 2023-08-17 20:41:28">2023-08-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/1d65/" title="redis操作之Zset操作"><img src="/img/cover/cover22.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="redis操作之Zset操作"/></a><div class="content"><a class="title" href="/posts/1d65/" title="redis操作之Zset操作">redis操作之Zset操作</a><time datetime="2023-08-17T12:41:28.270Z" title="发表于 2023-08-17 20:41:28">2023-08-17</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+public InputStreamReader(InputStream in)
+可以传入InputStream或其子类对象，使用默认字符编码UTF-8
+
+
+public InputStreamReader(InputStream in, String charsetName)
+可以传入InputStre ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/b442/" title="firewall-cmd命令学习记录"><img class="post_bg" src="/img/cover/cover61.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="firewall-cmd命令学习记录"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/b442/" title="firewall-cmd命令学习记录">firewall-cmd命令学习记录</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-18T05:55:53.984Z" title="发表于 2023-08-18 13:55:53">2023-08-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux/">Linux</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Linux/">Linux</a></span></div><div class="content">firewall-cmd这个命令主要是用来操作防火墙
+ 启动firewalld服务
+1systemctl start firewalld
+ 查看firewalld服务状态
+1systemctl status firewalld
+ 禁用firewalld服务
+1systemctl disable firewalld
+ 停止firewalld服务
+1systemctl stop firewalld
+ 查看防火墙状态
+1firewall-cmd --state
+ 开启端口，以80端口为例
+1firewall-cmd --permanent --zone=public --add-port=80/tcp
+ 重启防火墙
+1firewall-cmd --reload
+ 查看开放的端口
+1firewall-cmd --list-ports
+ 查看版本
+1firewall-cmd --version
+ 查看帮助
+1firewall-cmd --help
+ 查看区域信息
+1firwalld-cmd --get-active-zones
+</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/2415/" title="File类常用方法详解"><img class="post_bg" src="/img/cover/cover58.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="File类常用方法详解"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/2415/" title="File类常用方法详解">File类常用方法详解</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-18T05:55:53.981Z" title="发表于 2023-08-18 13:55:53">2023-08-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Java/">Java</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Java/">Java</a></span></div><div class="content">File类用于文件操作，下面我来演示以下File类的常用方法
+ 创建File对象
+ 构造器概述
+一个File对象绑定一个文件或者文件夹，我们需要在创建对象时绑定文件或者文件夹，这个通过调用FIle类的构造函数来实现
+File类的构造器如下
+
+
+public File(String pathname)
+通过路径名字符串绑定文件或者文件夹
+
+
+public File(String parent, String child)
+通过父路径字符串+子路径字符串绑定文件或者文件夹
+
+
+public File(File parent, String child)
+通过父File对象+子路径字符串绑定文件或者文件夹
+
+
+private File(String child, File parent)
+这个为私有构造器，只能内部调用，就不演示了
+
+
+private File(String pathname, int prefixLength)
+这个为私有构造器，只能内部调用，就不演示了
+
+
+ 构造器演示
+ public File(String pathname)
+123// public File(Str ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/5d2a/" title="FileReader和FileWriter类方法详解"><img class="post_bg" src="/img/cover/cover60.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="FileReader和FileWriter类方法详解"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/5d2a/" title="FileReader和FileWriter类方法详解">FileReader和FileWriter类方法详解</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-18T05:55:53.980Z" title="发表于 2023-08-18 13:55:53">2023-08-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Java/">Java</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Java/">Java</a></span></div><div class="content"> FileReader
+ 准备工作
+准备一个E:\news.txt，内容如下,字符编码为UTF-8
+
+ 常用构造器
+
+
+public FileReader(String fileName) throws FileNotFoundException
+传入文件的路径字符串
+
+
+public FileReader(File file) throws FileNotFoundException
+传入文件的file对象
+
+
+12// 构造器1FileReader fileReader = new FileReader(&quot;E://news.txt&quot;);
+12// 构造器2FileReader fileReader = new FileReader(new File(&quot;E://news.txt&quot;));
+ read
+可以将FileReader中的内容读取出来
+有以下常用重载形式
+
+
+public int read() throws IOException
+一次读取一个字符，返回范围在0到65535字符对应的整数，读取到文件末尾时返回-1
+
+
+public int ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/b7d/" title="FileInputStream和FileOutputStream常用方法详解"><img class="post_bg" src="/img/cover/cover59.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="FileInputStream和FileOutputStream常用方法详解"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/b7d/" title="FileInputStream和FileOutputStream常用方法详解">FileInputStream和FileOutputStream常用方法详解</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-18T05:55:53.979Z" title="发表于 2023-08-18 13:55:53">2023-08-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Java/">Java</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Java/">Java</a></span></div><div class="content"> FileInputStream
+ 准备工作
+事先准备好一个E:\news.txt文件，内容如下，总字节数为11
+
+ 常用构造器
+
+
+public FileInputStream(String name) throws FileNotFoundException
+传入形参为String类型，表示文件的路径
+
+
+public FileInputStream(File file) throws FileNotFoundException
+
+
+​		传入形参为File对象，表示文件绑定的File对象
+12345// 两者都能创建出文件对应的FileInputStream对象// 传入StringFileInputStream fileInputStream1 = new FileInputStream(&quot;E:\\news.txt&quot;);// 传入FileFileInputStream fileInputStream2 = new FileInputStream(new File(&quot;E:\\news.txt&quot;));
+ available
+用于获取文件的总字 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/a06e/" title="Docker安装"><img class="post_bg" src="/img/cover/cover57.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker安装"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/a06e/" title="Docker安装">Docker安装</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-18T05:55:53.977Z" title="发表于 2023-08-18 13:55:53">2023-08-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Docker/">Docker</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Docker/">Docker</a></span></div><div class="content"> 安装环境和官方安装文档
+安装环境：CentOS 7.6
+官方安装文档：Install Docker Engine | Docker Documentation
+CentOS安装Docker：Install Docker Engine on CentOS | Docker Documentation
+DockerHub地址：https://hub.docker.com
+ 安装Docker
+ 卸载旧的版本
+12345678sudo yum remove docker \                  docker-client \                  docker-client-latest \                  docker-common \                  docker-latest \                  docker-latest-logrotate \                  docker-logrotate \                  docker-engine
+ 安装Docker所需要的包 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/d6f3/" title="Date类常用方法详解"><img class="post_bg" src="/img/cover/cover56.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Date类常用方法详解"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/d6f3/" title="Date类常用方法详解">Date类常用方法详解</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-18T05:55:53.975Z" title="发表于 2023-08-18 13:55:53">2023-08-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Java/">Java</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Java/">Java</a></span></div><div class="content">Date类是java的第一代日期类，虽然有很多方法已经过时，但是也有我们学习的地方，这里只介绍还没有过时的方法
+ 构造函数
+
+
+public Date()
+根据现在的日期时间构造Date对象
+
+
+public Date(long date)
+
+
+​		根据指定的日期时间（Unix时间，单位为毫秒）构造Date对象
+12// 构造1Date date = new Date();
+12// 构造2Date date = new Date(0);
+ getTime
+获得Date对象表示的Unix时间，单位为毫秒
+public long getTime()
+1234Date date = new Date();System.out.println(date.getTime());// 输出结果：// 1662508124741
+ compareTo
+比较两个Date对象（这里假定为A和B）代表的时间的大小
+
+A &lt; B  返回-1
+A = B 返回0
+A &gt; B 返回1
+
+public int compareTo(Date anotherDate)
+12345Date date1  ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/207f/" title="curl命令"><img class="post_bg" src="/img/cover/cover55.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="curl命令"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/207f/" title="curl命令">curl命令</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-18T05:55:53.974Z" title="发表于 2023-08-18 13:55:53">2023-08-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Curl/">Curl</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Curl/">Curl</a></span></div><div class="content"> curl是什么
+如果你经常和各种api打交道，那么curl是一个必学的工具，因为curl可以让你不需要浏览器也能作为http客户端发送请求
+ 用法
+直接在终端输入curl命令
+1curl URL
+就可以测试你是否能与目标进行连接，可以返回响应的资源
+默认为get请求
+可以通过-X选项进行更改
+写法
+1curl -X -POST(或为其他请求方式) url
+或
+1curl -XPOST(或为其他请求方式) url
+可以通过-d携带数据
+1curl -XPOST url -d 数据
+可以通过-H携带HTTP首部
+1curl URl -H 首部
+可以通过-I获取响应的所有首部
+1curl -I url
+可以通过-O下载响应信息
+1curl -O url
+可以通过-o自定义下载文件的名字
+1curl -o url
+限制下载速度--limit-rate
+1curl --limit-rate 速度 url
+恢复下载-C -
+1curl -C - url
+curl默认不会重定向，如果要重定向，加上-L
+1curl -L url
+查看存在哪些问题-v
+1curl -v url
+使用代理访问目标url ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/#content-inner">7</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/tux.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">神笔码农</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">64</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/programmer-liao"><i class="fab fa-github"></i><span>follow me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到神笔码农的小站，我在这里分享知识</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/ffe3/" title="java基础知识梳理（三）：运算符"><img src="/img/cover/cover43.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="java基础知识梳理（三）：运算符"/></a><div class="content"><a class="title" href="/posts/ffe3/" title="java基础知识梳理（三）：运算符">java基础知识梳理（三）：运算符</a><time datetime="2023-08-18T05:55:53.988Z" title="发表于 2023-08-18 13:55:53">2023-08-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/76ce/" title="java基础知识梳理（二）：变量、数据类型"><img src="/img/cover/cover42.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="java基础知识梳理（二）：变量、数据类型"/></a><div class="content"><a class="title" href="/posts/76ce/" title="java基础知识梳理（二）：变量、数据类型">java基础知识梳理（二）：变量、数据类型</a><time datetime="2023-08-18T05:55:53.986Z" title="发表于 2023-08-18 13:55:53">2023-08-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/e960/" title="InputStreamReader和OutputStreamWriter常用方法详解"><img src="/img/cover/cover62.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="InputStreamReader和OutputStreamWriter常用方法详解"/></a><div class="content"><a class="title" href="/posts/e960/" title="InputStreamReader和OutputStreamWriter常用方法详解">InputStreamReader和OutputStreamWriter常用方法详解</a><time datetime="2023-08-18T05:55:53.985Z" title="发表于 2023-08-18 13:55:53">2023-08-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/b442/" title="firewall-cmd命令学习记录"><img src="/img/cover/cover61.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="firewall-cmd命令学习记录"/></a><div class="content"><a class="title" href="/posts/b442/" title="firewall-cmd命令学习记录">firewall-cmd命令学习记录</a><time datetime="2023-08-18T05:55:53.984Z" title="发表于 2023-08-18 13:55:53">2023-08-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/2415/" title="File类常用方法详解"><img src="/img/cover/cover58.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="File类常用方法详解"/></a><div class="content"><a class="title" href="/posts/2415/" title="File类常用方法详解">File类常用方法详解</a><time datetime="2023-08-18T05:55:53.981Z" title="发表于 2023-08-18 13:55:53">2023-08-18</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>分类</span>
             <a class="card-more-btn" href="/categories/" title="查看更多">
     <i class="fas fa-angle-right"></i></a>
             </div>
             <ul class="card-category-list" id="aside-cat-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/AQS/"><span class="card-category-list-name">AQS</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Docker/"><span class="card-category-list-name">Docker</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/ElasticSearch/"><span class="card-category-list-name">ElasticSearch</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java/"><span class="card-category-list-name">Java</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/MyBatis/"><span class="card-category-list-name">MyBatis</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Redis/"><span class="card-category-list-name">Redis</span><span class="card-category-list-count">12</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/git/"><span class="card-category-list-name">git</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/mysql/"><span class="card-category-list-name">mysql</span><span class="card-category-list-count">2</span></a></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/AQS/" style="font-size: 1.15em; color: rgb(47, 36, 182)">AQS</a><a href="/tags/Redis/" style="font-size: 1.45em; color: rgb(39, 187, 12)">Redis</a><a href="/tags/Docker/" style="font-size: 1.3em; color: rgb(192, 29, 46)">Docker</a><a href="/tags/ElasticSearch/" style="font-size: 1.15em; color: rgb(168, 152, 184)">ElasticSearch</a><a href="/tags/mysql/" style="font-size: 1.3em; color: rgb(12, 199, 60)">mysql</a><a href="/tags/MyBatis/" style="font-size: 1.3em; color: rgb(130, 50, 120)">MyBatis</a><a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 1.15em; color: rgb(88, 150, 55)">算法</a><a href="/tags/%E9%A2%98%E8%A7%A3/" style="font-size: 1.15em; color: rgb(96, 110, 9)">题解</a><a href="/tags/python/" style="font-size: 1.15em; color: rgb(64, 35, 170)">python</a><a href="/tags/git/" style="font-size: 1.15em; color: rgb(175, 170, 156)">git</a><a href="/tags/%E8%B5%84%E6%BA%90%E6%B1%87%E6%80%BB/" style="font-size: 1.15em; color: rgb(189, 165, 122)">资源汇总</a><a href="/tags/HashMap/" style="font-size: 1.15em; color: rgb(92, 191, 113)">HashMap</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/08/"><span class="card-archive-list-date">八月 2023</span><span class="card-archive-list-count">21</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/07/"><span class="card-archive-list-date">七月 2023</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/06/"><span class="card-archive-list-date">六月 2022</span><span class="card-archive-list-count">1</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">26</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-08-17T13:27:49.818Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2023 By 神笔码农</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/AQS/"><span class="card-category-list-name">AQS</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Curl/"><span class="card-category-list-name">Curl</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Docker/"><span class="card-category-list-name">Docker</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/ElasticSearch/"><span class="card-category-list-name">ElasticSearch</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java/"><span class="card-category-list-name">Java</span><span class="card-category-list-count">29</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Linux/"><span class="card-category-list-name">Linux</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/MyBatis/"><span class="card-category-list-name">MyBatis</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Redis/"><span class="card-category-list-name">Redis</span><span class="card-category-list-count">12</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/AQS/" style="font-size: 1.15em; color: rgb(78, 65, 19)">AQS</a><a href="/tags/Java/" style="font-size: 1.45em; color: rgb(159, 7, 129)">Java</a><a href="/tags/Redis/" style="font-size: 1.39em; color: rgb(36, 52, 60)">Redis</a><a href="/tags/Docker/" style="font-size: 1.27em; color: rgb(93, 79, 58)">Docker</a><a href="/tags/ElasticSearch/" style="font-size: 1.15em; color: rgb(97, 14, 105)">ElasticSearch</a><a href="/tags/mysql/" style="font-size: 1.21em; color: rgb(171, 54, 189)">mysql</a><a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 1.15em; color: rgb(192, 77, 78)">算法</a><a href="/tags/MyBatis/" style="font-size: 1.21em; color: rgb(54, 198, 122)">MyBatis</a><a href="/tags/SpringBoot/" style="font-size: 1.33em; color: rgb(198, 70, 87)">SpringBoot</a><a href="/tags/SpringMVC/" style="font-size: 1.15em; color: rgb(4, 174, 100)">SpringMVC</a><a href="/tags/%E9%A2%98%E8%A7%A3/" style="font-size: 1.15em; color: rgb(72, 123, 103)">题解</a><a href="/tags/Curl/" style="font-size: 1.15em; color: rgb(53, 97, 75)">Curl</a><a href="/tags/Linux/" style="font-size: 1.15em; color: rgb(69, 123, 42)">Linux</a><a href="/tags/python/" style="font-size: 1.15em; color: rgb(19, 189, 119)">python</a><a href="/tags/git/" style="font-size: 1.15em; color: rgb(64, 159, 89)">git</a><a href="/tags/%E8%B5%84%E6%BA%90%E6%B1%87%E6%80%BB/" style="font-size: 1.15em; color: rgb(153, 115, 139)">资源汇总</a><a href="/tags/HashMap/" style="font-size: 1.15em; color: rgb(147, 24, 72)">HashMap</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/08/"><span class="card-archive-list-date">八月 2023</span><span class="card-archive-list-count">59</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/07/"><span class="card-archive-list-date">七月 2023</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/06/"><span class="card-archive-list-date">六月 2022</span><span class="card-archive-list-count">1</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">64</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-08-18T09:01:59.500Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2023 By 神笔码农</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

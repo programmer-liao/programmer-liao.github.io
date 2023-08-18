@@ -1,0 +1,205 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Collection接口方法详解 | 神笔码农的小站</title><meta name="author" content="神笔码农"><meta name="copyright" content="神笔码农"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="接口方法一览  以下方法均以ArrayList为例，演示方法的用法，对于实现了Collection接口的其他实现类可以此类推 1Collection&lt;String&gt; arrayList &#x3D; new ArrayList&lt;&gt;();  add 往Collection集合中添加一个元素 添加成功返回true，添加失败返回false 123&#x2F;&#x2F; 向集合中添加一个&quot;ikun">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Collection接口方法详解">
+<meta property="og:url" content="https://dezhi.site/posts/35b1/index.html">
+<meta property="og:site_name" content="神笔码农的小站">
+<meta property="og:description" content="接口方法一览  以下方法均以ArrayList为例，演示方法的用法，对于实现了Collection接口的其他实现类可以此类推 1Collection&lt;String&gt; arrayList &#x3D; new ArrayList&lt;&gt;();  add 往Collection集合中添加一个元素 添加成功返回true，添加失败返回false 123&#x2F;&#x2F; 向集合中添加一个&quot;ikun">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://dezhi.site/img/cover/cover53.png">
+<meta property="article:published_time" content="2023-08-18T05:55:53.972Z">
+<meta property="article:modified_time" content="2023-08-18T08:37:14.755Z">
+<meta property="article:author" content="神笔码农">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dezhi.site/img/cover/cover53.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://dezhi.site/posts/35b1/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Collection接口方法详解',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-08-18 16:37:14'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/footer.css"><link rel="stylesheet" href="/css/background.css"><link rel="stylesheet" href="/css/scrollbar.css"><link rel="stylesheet" href="/css/frontface.css"><link rel="stylesheet" href="/css/card-border.css"><link rel="stylesheet" href="/css/width.css"><link rel="stylesheet" href="/css/my.css"><link rel="stylesheet" href="/css/load.css"><link rel="stylesheet" href="/css/atom-one-dark.css"><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css"/>
+<style>#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags:before {content:"\A";
+  white-space: pre;}#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags > .article-meta__separator{display:none}</style>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><link rel="stylesheet" href="/css/load.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js/pace.min.js"></script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/tux.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">64</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">神笔码农的小站</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Collection接口方法详解</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-08-18T05:55:53.972Z" title="发表于 2023-08-18 13:55:53">2023-08-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-08-18T08:37:14.755Z" title="更新于 2023-08-18 16:37:14">2023-08-18</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Java/">Java</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Collection接口方法详解"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h2 id="接口方法一览"><a class="markdownIt-Anchor" href="#接口方法一览"></a> 接口方法一览</h2>
+<p><img src="/posts/35b1/image-20220830144439640.png" alt="image-20220830144439640"></p>
+<p>以下方法均以ArrayList为例，演示方法的用法，对于实现了Collection接口的其他实现类可以此类推</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">Collection&lt;String&gt; arrayList = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br></code></pre></td></tr></table></figure>
+<h2 id="add"><a class="markdownIt-Anchor" href="#add"></a> add</h2>
+<p>往Collection集合中添加一个元素</p>
+<p>添加成功返回true，添加失败返回false</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 向集合中添加一个&quot;ikun&quot;元素</span><br>System.out.println(arrayList.add(<span class="hljs-string">&quot;ikun&quot;</span>));<br><span class="hljs-comment">// 输出结果：true</span><br></code></pre></td></tr></table></figure>
+<h2 id="addall"><a class="markdownIt-Anchor" href="#addall"></a> addAll</h2>
+<p>将一个集合中的所有元素（这里称为集合A）添加进另一个集合中（这里称为集合B）</p>
+<p>添加成功返回true，添加失败返回false</p>
+<p>这个操作不会影响集合A中的元素</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 新建ArrayList集合A和B</span><br>Collection&lt;String&gt; A = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br>Collection&lt;String&gt; B = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br><span class="hljs-comment">// 往A集合中添加几条数据</span><br>A.add(<span class="hljs-string">&quot;ikun1&quot;</span>);<br>A.add(<span class="hljs-string">&quot;ikun2&quot;</span>);<br>A.add(<span class="hljs-string">&quot;ikun3&quot;</span>);<br>A.add(<span class="hljs-string">&quot;ikun4&quot;</span>);<br><span class="hljs-comment">// 将集合A中的所有元素添加到集合B中,同时打印返回值</span><br>System.out.println(B.addAll(A));<br><span class="hljs-comment">// 输出集合A和集合B的toString字符串</span><br>System.out.println(A);<br>System.out.println(B);<br><span class="hljs-comment">// 输出结果</span><br><span class="hljs-comment">// true</span><br><span class="hljs-comment">// [ikun1, ikun2, ikun3, ikun4]</span><br><span class="hljs-comment">// [ikun1, ikun2, ikun3, ikun4]</span><br></code></pre></td></tr></table></figure>
+<h2 id="size"><a class="markdownIt-Anchor" href="#size"></a> size</h2>
+<p>返回Collection集合的元素个数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 输出集合A的元素个数</span><br>System.out.println(A.size());<br><span class="hljs-comment">// 输出结果：4</span><br></code></pre></td></tr></table></figure>
+<h2 id="isempty"><a class="markdownIt-Anchor" href="#isempty"></a> isEmpty</h2>
+<p>判断Collection集合是否为空</p>
+<p>为空返回true，不为空返回false</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 判断集合A是否为空</span><br>System.out.println(A.isEmpty());<br><span class="hljs-comment">// 输出结果：false</span><br></code></pre></td></tr></table></figure>
+<h2 id="contains"><a class="markdownIt-Anchor" href="#contains"></a> contains</h2>
+<p>判断Collection集合中是否存在某元素</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 判断Collection集合A是否存在&quot;ikun1&quot;</span><br>System.out.println(A.contains(<span class="hljs-string">&quot;ikun1&quot;</span>));<br><span class="hljs-comment">// 判断COllection集合A是否存在&quot;小明&quot;</span><br>System.out.println(A.contains(<span class="hljs-string">&quot;小明&quot;</span>));<br><span class="hljs-comment">// 输出结果</span><br><span class="hljs-comment">// true</span><br><span class="hljs-comment">// false</span><br></code></pre></td></tr></table></figure>
+<h2 id="remove"><a class="markdownIt-Anchor" href="#remove"></a> remove</h2>
+<p>移除Collection集合中的指定元素</p>
+<p>如果该元素在集合中存在多个，则一次只能移除一个</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 新建一个集合C</span><br>Collection&lt;String&gt; C = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br><span class="hljs-comment">// 向集合C中添加几条数据，可以看到有几条数据重复</span><br>C.add(<span class="hljs-string">&quot;ikun&quot;</span>);<br>C.add(<span class="hljs-string">&quot;ikun&quot;</span>);<br>C.add(<span class="hljs-string">&quot;ikun&quot;</span>);<br>C.add(<span class="hljs-string">&quot;ikun&quot;</span>);<br>C.add(<span class="hljs-string">&quot;ikun1&quot;</span>);<br><span class="hljs-comment">// 打印集合C的toString字符串</span><br>System.out.println(C);<br><span class="hljs-comment">// 移除一个&quot;ikun&quot;</span><br>C.remove(<span class="hljs-string">&quot;ikun&quot;</span>);<br><span class="hljs-comment">// 打印集合C的toString字符串</span><br>System.out.println(C);<br><span class="hljs-comment">// 输出结果：</span><br><span class="hljs-comment">// [ikun, ikun, ikun, ikun, ikun1]</span><br><span class="hljs-comment">// [ikun, ikun, ikun, ikun1]</span><br></code></pre></td></tr></table></figure>
+<h2 id="remoreall"><a class="markdownIt-Anchor" href="#remoreall"></a> remoreAll</h2>
+<p>移除一个集合（这里称为集合D）存在于另一个集合（这里称为集合E）的元素</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 新建集合D和E</span><br>Collection&lt;Integer&gt; D = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br>Collection&lt;Integer&gt; E = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br><span class="hljs-comment">// 向集合D和E中添加几条数据</span><br>D.add(<span class="hljs-number">1</span>);<br>D.add(<span class="hljs-number">2</span>);<br>D.add(<span class="hljs-number">3</span>);<br>D.add(<span class="hljs-number">4</span>);<br>D.add(<span class="hljs-number">5</span>);<br>E.add(<span class="hljs-number">3</span>);<br>E.add(<span class="hljs-number">4</span>);<br>E.add(<span class="hljs-number">5</span>);<br>E.add(<span class="hljs-number">6</span>);<br>E.add(<span class="hljs-number">7</span>);<br><span class="hljs-comment">// 打印集合D和E的toString字符串</span><br>System.out.println(D);<br>System.out.println(E);<br><span class="hljs-comment">// 移除D中的D和E共有的元素[3, 4, 5]</span><br>D.removeAll(E);<br><span class="hljs-comment">// 打印集合D和E的toString字符串</span><br>System.out.println(D);<br>System.out.println(E);<br><span class="hljs-comment">// 输出结果，可以看到集合D少了[3, 4, 5]元素</span><br><span class="hljs-comment">// [1, 2, 3, 4, 5]</span><br><span class="hljs-comment">// [3, 4, 5, 6, 7]</span><br><span class="hljs-comment">// [1, 2]</span><br><span class="hljs-comment">// [3, 4, 5, 6, 7]</span><br></code></pre></td></tr></table></figure>
+<h2 id="toarray"><a class="markdownIt-Anchor" href="#toarray"></a> toArray</h2>
+<p>将Collection集合转换成一个数组，返回类型为Object[]</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 将E集合转换成数组array</span><br>Object[] array = E.toArray();<br><span class="hljs-comment">// 遍历数组</span><br><span class="hljs-keyword">for</span> (Object element : array) &#123;<br>    System.out.print(element + <span class="hljs-string">&quot; &quot;</span>);<br>&#125;<br><span class="hljs-comment">// 输出结果：</span><br><span class="hljs-comment">// 3, 4, 5, 6, 7</span><br></code></pre></td></tr></table></figure>
+<h2 id="containsall"><a class="markdownIt-Anchor" href="#containsall"></a> containsAll</h2>
+<p>判断一个Collection集合(这里称为F集合)中所有的元素是否都在另一个Collection(这里称为E集合)集合中存在</p>
+<p>都存在时返回true，有值不存在时返回false</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 新建一个F集合，集合元素为[3, 4, 5]</span><br>Collection&lt;Integer&gt; F = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br>F.add(<span class="hljs-number">3</span>);<br>F.add(<span class="hljs-number">4</span>);<br>F.add(<span class="hljs-number">5</span>);<br><span class="hljs-comment">// 判断F集合中所有元素是否在E中都有</span><br>System.out.println(E.containsAll(F));<br><span class="hljs-comment">// 再向集合F中添加元素1,此时F集合元素为[3, 4, 5, 1]</span><br>F.add(<span class="hljs-number">1</span>);<br><span class="hljs-comment">// 判断F集合中所有元素是否在E中都有 </span><br>System.out.println(E.containsAll(F));<br><span class="hljs-comment">// 输出结果</span><br><span class="hljs-comment">// true</span><br><span class="hljs-comment">// false</span><br></code></pre></td></tr></table></figure>
+<h2 id="hashcode"><a class="markdownIt-Anchor" href="#hashcode"></a> hashCode</h2>
+<p>返回Collection集合的hashCode值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 返回E的hashCode值</span><br>System.out.println(E.hashCode());<br><span class="hljs-comment">// 输出结果：31523876</span><br></code></pre></td></tr></table></figure>
+<h2 id="equals"><a class="markdownIt-Anchor" href="#equals"></a> equals</h2>
+<p>判断两个Collection集合是否相等</p>
+<p>这里相等是指元素个数和元素都相等</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 集合E: [3, 4, 5, 6, 7]</span><br><span class="hljs-comment">// 集合F: [3, 4, 5, 1]</span><br><span class="hljs-comment">// 判断集合E和F是否相等</span><br>System.out.println(E.equals(F));<br><span class="hljs-comment">// 结果：false</span><br><br><span class="hljs-comment">// 新建一个集合G,通过传入F到构造函数中使之与F集合相同</span><br> Collection&lt;Integer&gt; G = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;(F);<br><span class="hljs-comment">// 判断集合E和F是否相等</span><br>System.out.println(G.equals(F));<br><span class="hljs-comment">// 结果：true</span><br></code></pre></td></tr></table></figure>
+<h2 id="iterator"><a class="markdownIt-Anchor" href="#iterator"></a> iterator</h2>
+<p>返回一个Collection集合的迭代器，用于迭代操作</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 返回一个E的迭代器</span><br>Iterator&lt;Integer&gt; iterator = E.iterator();<br><span class="hljs-comment">// 使用迭代器遍历E</span><br><span class="hljs-keyword">while</span> (iterator.hasNext()) &#123;<br>    System.out.println(iterator.next());<br>&#125;<br><span class="hljs-comment">// 输出结果</span><br><span class="hljs-comment">// 34567</span><br></code></pre></td></tr></table></figure>
+<h2 id="retainall"><a class="markdownIt-Anchor" href="#retainall"></a> retainAll</h2>
+<p>取两个Collection集合（这里称作H集合和I集合）的交集，返回给调用集合</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 定义两个集合H和I</span><br>Collection&lt;Integer&gt; H = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br>Collection&lt;Integer&gt; I = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br><span class="hljs-comment">// 添加元素</span><br><span class="hljs-comment">// H:[1, 2, 3, 4]</span><br><span class="hljs-comment">// I:[3, 4, 5, 6]</span><br>H.add(<span class="hljs-number">1</span>);<br>H.add(<span class="hljs-number">2</span>);<br>H.add(<span class="hljs-number">3</span>);<br>H.add(<span class="hljs-number">4</span>);<br>I.add(<span class="hljs-number">3</span>);<br>I.add(<span class="hljs-number">4</span>);<br>I.add(<span class="hljs-number">5</span>);<br>I.add(<span class="hljs-number">6</span>);<br><span class="hljs-comment">// 取交集，返回给H集合</span><br>H.retainAll(I);<br><span class="hljs-comment">// 输出H的toString字符串</span><br>System.out.println(H);<br><span class="hljs-comment">// 输出结果</span><br><span class="hljs-comment">// [3, 4]</span><br></code></pre></td></tr></table></figure>
+<h2 id="clear"><a class="markdownIt-Anchor" href="#clear"></a> clear</h2>
+<p>清空一个Collection集合中的所有元素</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 输出H的toString字符串</span><br>System.out.println(H);<br><span class="hljs-comment">// 清空H集合的所有元素</span><br>H.clear();<br><span class="hljs-comment">// 输出H的toString字符串</span><br>System.out.println(H);<br><span class="hljs-comment">// 输出结果</span><br><span class="hljs-comment">// [3, 4]</span><br><span class="hljs-comment">// []</span><br></code></pre></td></tr></table></figure>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Java/">Java</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/207f/"><img class="prev-cover" src="/img/cover/cover55.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">curl命令</div></div></a></div><div class="next-post pull-right"><a href="/posts/ba8/"><img class="next-cover" src="/img/cover/cover54.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Collections工具类常用方法详解</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/aa32/" title="Arrays常用方法详解"><img class="cover" src="/img/cover/cover49.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-18</div><div class="title">Arrays常用方法详解</div></div></a></div><div><a href="/posts/41b7/" title="BigInteger和BigDecimal常用方法详解"><img class="cover" src="/img/cover/cover50.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-18</div><div class="title">BigInteger和BigDecimal常用方法详解</div></div></a></div><div><a href="/posts/b663/" title="BufferedReader和BufferedWriter常用方法详解"><img class="cover" src="/img/cover/cover51.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-18</div><div class="title">BufferedReader和BufferedWriter常用方法详解</div></div></a></div><div><a href="/posts/3a2/" title="Calendar类常用方法详解"><img class="cover" src="/img/cover/cover52.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-18</div><div class="title">Calendar类常用方法详解</div></div></a></div><div><a href="/posts/ba8/" title="Collections工具类常用方法详解"><img class="cover" src="/img/cover/cover54.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-18</div><div class="title">Collections工具类常用方法详解</div></div></a></div><div><a href="/posts/d6f3/" title="Date类常用方法详解"><img class="cover" src="/img/cover/cover56.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-18</div><div class="title">Date类常用方法详解</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/tux.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">神笔码农</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">64</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/programmer-liao"><i class="fab fa-github"></i><span>follow me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到神笔码农的小站，我在这里分享知识</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3%E6%96%B9%E6%B3%95%E4%B8%80%E8%A7%88"><span class="toc-number">1.</span> <span class="toc-text"> 接口方法一览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#add"><span class="toc-number">2.</span> <span class="toc-text"> add</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#addall"><span class="toc-number">3.</span> <span class="toc-text"> addAll</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#size"><span class="toc-number">4.</span> <span class="toc-text"> size</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#isempty"><span class="toc-number">5.</span> <span class="toc-text"> isEmpty</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#contains"><span class="toc-number">6.</span> <span class="toc-text"> contains</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#remove"><span class="toc-number">7.</span> <span class="toc-text"> remove</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#remoreall"><span class="toc-number">8.</span> <span class="toc-text"> remoreAll</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#toarray"><span class="toc-number">9.</span> <span class="toc-text"> toArray</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#containsall"><span class="toc-number">10.</span> <span class="toc-text"> containsAll</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hashcode"><span class="toc-number">11.</span> <span class="toc-text"> hashCode</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#equals"><span class="toc-number">12.</span> <span class="toc-text"> equals</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#iterator"><span class="toc-number">13.</span> <span class="toc-text"> iterator</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#retainall"><span class="toc-number">14.</span> <span class="toc-text"> retainAll</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#clear"><span class="toc-number">15.</span> <span class="toc-text"> clear</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/ffe3/" title="java基础知识梳理（三）：运算符"><img src="/img/cover/cover43.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="java基础知识梳理（三）：运算符"/></a><div class="content"><a class="title" href="/posts/ffe3/" title="java基础知识梳理（三）：运算符">java基础知识梳理（三）：运算符</a><time datetime="2023-08-18T05:55:53.988Z" title="发表于 2023-08-18 13:55:53">2023-08-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/76ce/" title="java基础知识梳理（二）：变量、数据类型"><img src="/img/cover/cover42.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="java基础知识梳理（二）：变量、数据类型"/></a><div class="content"><a class="title" href="/posts/76ce/" title="java基础知识梳理（二）：变量、数据类型">java基础知识梳理（二）：变量、数据类型</a><time datetime="2023-08-18T05:55:53.986Z" title="发表于 2023-08-18 13:55:53">2023-08-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/e960/" title="InputStreamReader和OutputStreamWriter常用方法详解"><img src="/img/cover/cover62.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="InputStreamReader和OutputStreamWriter常用方法详解"/></a><div class="content"><a class="title" href="/posts/e960/" title="InputStreamReader和OutputStreamWriter常用方法详解">InputStreamReader和OutputStreamWriter常用方法详解</a><time datetime="2023-08-18T05:55:53.985Z" title="发表于 2023-08-18 13:55:53">2023-08-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/b442/" title="firewall-cmd命令学习记录"><img src="/img/cover/cover61.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="firewall-cmd命令学习记录"/></a><div class="content"><a class="title" href="/posts/b442/" title="firewall-cmd命令学习记录">firewall-cmd命令学习记录</a><time datetime="2023-08-18T05:55:53.984Z" title="发表于 2023-08-18 13:55:53">2023-08-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/2415/" title="File类常用方法详解"><img src="/img/cover/cover58.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="File类常用方法详解"/></a><div class="content"><a class="title" href="/posts/2415/" title="File类常用方法详解">File类常用方法详解</a><time datetime="2023-08-18T05:55:53.981Z" title="发表于 2023-08-18 13:55:53">2023-08-18</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2023 By 神笔码农</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

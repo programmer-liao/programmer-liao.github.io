@@ -1,0 +1,252 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>ObjectOutputStream和ObjectInputStream常用方法详解 | 神笔码农的小站</title><meta name="author" content="神笔码农"><meta name="copyright" content="神笔码农"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="准备工作  准备user类 一个可序列化的类对象必须实现Serializable接口或者Externalizable接口 区别在于  Serializable接口是一个标记接口，没有方法，不需要实现 Externalizable接口是一个必须实现的接口  这里我们选择实现Serializable接口 并且添加serialVersionUID，提高版本的兼容性 准备一个user类，信息如下 123">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ObjectOutputStream和ObjectInputStream常用方法详解">
+<meta property="og:url" content="https://dezhi.site/posts/4146/index.html">
+<meta property="og:site_name" content="神笔码农的小站">
+<meta property="og:description" content="准备工作  准备user类 一个可序列化的类对象必须实现Serializable接口或者Externalizable接口 区别在于  Serializable接口是一个标记接口，没有方法，不需要实现 Externalizable接口是一个必须实现的接口  这里我们选择实现Serializable接口 并且添加serialVersionUID，提高版本的兼容性 准备一个user类，信息如下 123">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://dezhi.site/img/cover/cover35.png">
+<meta property="article:published_time" content="2023-08-18T05:55:53.712Z">
+<meta property="article:modified_time" content="2023-08-18T08:06:56.473Z">
+<meta property="article:author" content="神笔码农">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dezhi.site/img/cover/cover35.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://dezhi.site/posts/4146/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'ObjectOutputStream和ObjectInputStream常用方法详解',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-08-18 16:06:56'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/footer.css"><link rel="stylesheet" href="/css/background.css"><link rel="stylesheet" href="/css/scrollbar.css"><link rel="stylesheet" href="/css/frontface.css"><link rel="stylesheet" href="/css/card-border.css"><link rel="stylesheet" href="/css/width.css"><link rel="stylesheet" href="/css/my.css"><link rel="stylesheet" href="/css/load.css"><link rel="stylesheet" href="/css/atom-one-dark.css"><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css"/>
+<style>#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags:before {content:"\A";
+  white-space: pre;}#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags > .article-meta__separator{display:none}</style>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><link rel="stylesheet" href="/css/load.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js/pace.min.js"></script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/tux.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">64</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">神笔码农的小站</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">ObjectOutputStream和ObjectInputStream常用方法详解</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-08-18T05:55:53.712Z" title="发表于 2023-08-18 13:55:53">2023-08-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-08-18T08:06:56.473Z" title="更新于 2023-08-18 16:06:56">2023-08-18</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Java/">Java</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="ObjectOutputStream和ObjectInputStream常用方法详解"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h2 id="准备工作"><a class="markdownIt-Anchor" href="#准备工作"></a> 准备工作</h2>
+<h3 id="准备user类"><a class="markdownIt-Anchor" href="#准备user类"></a> 准备user类</h3>
+<p>一个可序列化的类对象必须实现Serializable接口或者Externalizable接口</p>
+<p>区别在于</p>
+<ol>
+<li>Serializable接口是一个标记接口，没有方法，不需要实现</li>
+<li>Externalizable接口是一个必须实现的接口</li>
+</ol>
+<p>这里我们选择实现Serializable接口</p>
+<p>并且添加serialVersionUID，提高版本的兼容性</p>
+<p>准备一个user类，信息如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">user</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Serializable</span> &#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">static</span> <span class="hljs-type">long</span> <span class="hljs-variable">serialVersionUID</span> <span class="hljs-operator">=</span> <span class="hljs-number">1L</span>;<br>    String name;<br>    <span class="hljs-type">int</span> age;<br>    <span class="hljs-type">char</span> sex;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="准备usertxt文件"><a class="markdownIt-Anchor" href="#准备usertxt文件"></a> 准备user.txt文件</h3>
+<p>字符编码为UTF8</p>
+<p><img src="/posts/4146/image-20220905160151436.png" alt="image-20220905160151436"></p>
+<h2 id="objectoutputstream"><a class="markdownIt-Anchor" href="#objectoutputstream"></a> ObjectOutputStream</h2>
+<p>可以将对象序列化到一个文件中</p>
+<h3 id="构造方法"><a class="markdownIt-Anchor" href="#构造方法"></a> 构造方法</h3>
+<p><code>public ObjectOutputStream(OutputStream out) throws IOException</code></p>
+<p>可以传入OuterPutStream类对象和子类对象完成ObjectOuterputStream的构造</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">ObjectOutputStream</span> <span class="hljs-variable">objectOutputStream</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ObjectOutputStream</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">FileOutputStream</span>(<span class="hljs-string">&quot;E:\\news.txt&quot;</span>));<br></code></pre></td></tr></table></figure>
+<h3 id="write系列方法"><a class="markdownIt-Anchor" href="#write系列方法"></a> write系列方法</h3>
+<p><img src="/posts/4146/image-20220905164854888.png" alt="image-20220905164854888"></p>
+<p>write方法及其重载参考：<a href="C:%5CUsers%5Cliaodezhi%5CDesktop%5C%E6%9A%91%E6%9C%9F%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86%5Cjava%5Cjava%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86%5CFileReader%E5%92%8CFileWriter%E7%B1%BB%E6%96%B9%E6%B3%95%E8%AF%A6%E8%A7%A3.md#writer">FileReader和FileWriter类方法详解</a></p>
+<p><code>wirteObject</code>：将指定的对象写入文件中</p>
+<p><code>writeByte</code>：写入一个8位字节</p>
+<p><code>writeBoolean</code>：写入一个布尔值</p>
+<p><code>writeBytes</code>：写一个字符串作为字节序列</p>
+<p><code>writeChar</code>：写一个16位的字符</p>
+<p><code>wirteChars</code>：写一个字符串作为一系列的字符</p>
+<p><code>writeDouble</code>：写一个64位的double到文件中</p>
+<p><code>writeFields</code>：将缓冲的字段写入流</p>
+<p><code>writeFloat</code>：写一个32位float到文件中</p>
+<p><code>writeInt</code>：将一个int型数据写入文件中</p>
+<p><code>writeLong</code>：将一个long型数据写入文件中</p>
+<p><code>writeShort</code>：将一个short型数据写入文件中</p>
+<p><code>writeUTF</code>：此字符串的原始数据写入格式为UTF-8</p>
+<p><code>writeUnshared</code>：将“非共享”对象写入文件中</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">ObjectOutputStream</span> <span class="hljs-variable">objectOutputStream</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ObjectOutputStream</span>(Files.newOutputStream(Paths.get(<span class="hljs-string">&quot;E:\\user.txt&quot;</span>)));<br><span class="hljs-comment">// 写入以下内容到文件中，这个过程为序列化过程</span><br>objectOutputStream.writeUTF(<span class="hljs-string">&quot;jack&quot;</span>);<br>objectOutputStream.writeInt(<span class="hljs-number">18</span>);<br>objectOutputStream.writeChar(<span class="hljs-string">&#x27;男&#x27;</span>);<br><span class="hljs-comment">// 刷新缓冲区，将缓冲区的内容写入文件</span><br>objectOutputStream.flush();<br><span class="hljs-comment">// 关闭流</span><br>objectOutputStream.close();<br></code></pre></td></tr></table></figure>
+<p>结果</p>
+<p><img src="/posts/4146/image-20220905172906434.png" alt="image-20220905172906434"></p>
+<h3 id="flush-close"><a class="markdownIt-Anchor" href="#flush-close"></a> flush、close</h3>
+<p>见<a href="C:%5CUsers%5Cliaodezhi%5CDesktop%5C%E6%9A%91%E6%9C%9F%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86%5Cjava%5Cjava%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86%5CFileInputStream%E5%92%8CFileOutputStream%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E8%AF%A6%E8%A7%A3.md">FileInputStream和FileOutputStream常用方法详解</a></p>
+<h3 id="reset"><a class="markdownIt-Anchor" href="#reset"></a> reset</h3>
+<p>重置ObjectOutputStream流对象</p>
+<p><code>public void reset() throws IOException</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">ObjectOutputStream</span> <span class="hljs-variable">objectOutputStream</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ObjectOutputStream</span>(Files.newOutputStream(Paths.get(<span class="hljs-string">&quot;E:\\news.txt&quot;</span>)));<br>objectOutputStream.reset();<br></code></pre></td></tr></table></figure>
+<h3 id="useprotocolversion"><a class="markdownIt-Anchor" href="#useprotocolversion"></a> useProtocolVersion</h3>
+<p>指定在编写流时使用的流协议版本</p>
+<p>有两个版本</p>
+<ol>
+<li><code>PROTOCOL_VERSION_1</code></li>
+<li><code>PROTOCOL_VERSION_2</code></li>
+</ol>
+<p><code>public void useProtocolVersion(int version) throws IOException</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">ObjectOutputStream</span> <span class="hljs-variable">objectOutputStream</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ObjectOutputStream</span>(Files.newOutputStream(Paths.get(<span class="hljs-string">&quot;E:\\news.txt&quot;</span>)));<br><span class="hljs-comment">// 指定为ObjectStreamConstants.PROTOCOL_VERSION_1版本</span><br>objectOutputStream.useProtocolVersion(ObjectStreamConstants.PROTOCOL_VERSION_1);<br></code></pre></td></tr></table></figure>
+<h2 id="objectinputstream"><a class="markdownIt-Anchor" href="#objectinputstream"></a> ObjectInputStream</h2>
+<p>将文件中的对象反序列化到java程序中</p>
+<h3 id="构造方法-2"><a class="markdownIt-Anchor" href="#构造方法-2"></a> 构造方法</h3>
+<p><code>public ObjectInputStream(InputStream in) throws IOException</code></p>
+<p>可以传入InputStream对象或其子类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">ObjectInputStream</span> <span class="hljs-variable">objectInputStream</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ObjectInputStream</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">FileInputStream</span>(<span class="hljs-string">&quot;E:\\user.txt&quot;</span>));<br></code></pre></td></tr></table></figure>
+<h3 id="read系列方法"><a class="markdownIt-Anchor" href="#read系列方法"></a> read系列方法</h3>
+<p><img src="/posts/4146/image-20220906072841589.png" alt="image-20220906072841589"></p>
+<p>read方法及其重载：见<a href="C:%5CUsers%5Cliaodezhi%5CDesktop%5C%E6%9A%91%E6%9C%9F%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86%5Cjava%5Cjava%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86%5CFileReader%E5%92%8CFileWriter%E7%B1%BB%E6%96%B9%E6%B3%95%E8%AF%A6%E8%A7%A3.md#read">FileReader和FileWriter类方法详解</a></p>
+<p>readFields：从流中读取持久性字段，并通过名称获取它们</p>
+<p>readBoolean：读取布尔值</p>
+<p>readByte：读取8位字节</p>
+<p>readChar：读取16位字符</p>
+<p>readDouble：读取64位浮点数</p>
+<p>readFloat：读取32位浮点数</p>
+<p>readFully</p>
+<ol>
+<li>
+<p><code>void readFully(byte b[]) throws IOException</code></p>
+<p>读取整个字节数组b</p>
+</li>
+<li>
+<p><code>void readFully(byte b[], int off, int len) throws IOException</code></p>
+<p>读取字节数组的[off, off + len - 1]部分</p>
+</li>
+</ol>
+<p>readInt：读取一个32位int</p>
+<p>readShort：读取16位short</p>
+<p>readUnsignedByte：读取一个无符号的8位字节</p>
+<p>readUnsignedShort：读取一个无符号的16位short</p>
+<p>readUTF：以UTF-8的形式读取字符串</p>
+<p>readObject：读取一个对象</p>
+<p>readUnshared：读取一个非共享的对象</p>
+<p>readLine：已过时，一次读取一行内容，慎用</p>
+<p>defaultReadObject：从此流读取当前类的非静态和可序列化字段</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">ObjectInputStream</span> <span class="hljs-variable">objectInputStream</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ObjectInputStream</span>(Files.newInputStream(Paths.get(<span class="hljs-string">&quot;E:\\user.txt&quot;</span>)));<br><span class="hljs-type">String</span> <span class="hljs-variable">name</span> <span class="hljs-operator">=</span> objectInputStream.readUTF();<br><span class="hljs-type">int</span> <span class="hljs-variable">age</span> <span class="hljs-operator">=</span> objectInputStream.readInt();<br><span class="hljs-type">char</span> <span class="hljs-variable">sex</span> <span class="hljs-operator">=</span> objectInputStream.readChar();<br>System.out.println(<span class="hljs-string">&quot;name = &quot;</span> + name);<br>System.out.println(<span class="hljs-string">&quot;age = &quot;</span> + age);<br>System.out.println(<span class="hljs-string">&quot;sex = &quot;</span> + sex);<br><span class="hljs-comment">// 输出结果：</span><br><span class="hljs-comment">// name = jack</span><br><span class="hljs-comment">// age = 18</span><br><span class="hljs-comment">// sex = 男</span><br></code></pre></td></tr></table></figure>
+<h3 id="skipbytes"><a class="markdownIt-Anchor" href="#skipbytes"></a> skipBytes</h3>
+<p>使用此方法可以在文件读取过程中跳过读取指定字节数len</p>
+<p><code>public int skipBytes(int len) throws IOException</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">ObjectInputStream</span> <span class="hljs-variable">objectInputStream</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ObjectInputStream</span>(Files.newInputStream(Paths.get(<span class="hljs-string">&quot;E:\\user.txt&quot;</span>)));<br>objectInputStream.skipBytes(<span class="hljs-number">9</span>);<br></code></pre></td></tr></table></figure>
+<h2 id="skip-close-available"><a class="markdownIt-Anchor" href="#skip-close-available"></a> skip、close、available</h2>
+<p>available：获取文件的总大小</p>
+<p>skip：作用同skipBytes，具体细节不讨论</p>
+<p>close：关闭流</p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Java/">Java</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/43b1/"><img class="prev-cover" src="/img/cover/cover63.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">PrintStream常用方法详解</div></div></a></div><div class="next-post pull-right"><a href="/posts/3547/"><img class="next-cover" src="/img/cover/cover36.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">maven设置编译器版本</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/aa32/" title="Arrays常用方法详解"><img class="cover" src="/img/cover/cover49.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-18</div><div class="title">Arrays常用方法详解</div></div></a></div><div><a href="/posts/41b7/" title="BigInteger和BigDecimal常用方法详解"><img class="cover" src="/img/cover/cover50.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-18</div><div class="title">BigInteger和BigDecimal常用方法详解</div></div></a></div><div><a href="/posts/b663/" title="BufferedReader和BufferedWriter常用方法详解"><img class="cover" src="/img/cover/cover51.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-18</div><div class="title">BufferedReader和BufferedWriter常用方法详解</div></div></a></div><div><a href="/posts/3a2/" title="Calendar类常用方法详解"><img class="cover" src="/img/cover/cover52.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-18</div><div class="title">Calendar类常用方法详解</div></div></a></div><div><a href="/posts/ba8/" title="Collections工具类常用方法详解"><img class="cover" src="/img/cover/cover54.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-18</div><div class="title">Collections工具类常用方法详解</div></div></a></div><div><a href="/posts/35b1/" title="Collection接口方法详解"><img class="cover" src="/img/cover/cover53.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-18</div><div class="title">Collection接口方法详解</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/tux.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">神笔码农</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">64</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/programmer-liao"><i class="fab fa-github"></i><span>follow me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到神笔码农的小站，我在这里分享知识</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text"> 准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E5%A4%87user%E7%B1%BB"><span class="toc-number">1.1.</span> <span class="toc-text"> 准备user类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E5%A4%87usertxt%E6%96%87%E4%BB%B6"><span class="toc-number">1.2.</span> <span class="toc-text"> 准备user.txt文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#objectoutputstream"><span class="toc-number">2.</span> <span class="toc-text"> ObjectOutputStream</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="toc-number">2.1.</span> <span class="toc-text"> 构造方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#write%E7%B3%BB%E5%88%97%E6%96%B9%E6%B3%95"><span class="toc-number">2.2.</span> <span class="toc-text"> write系列方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flush-close"><span class="toc-number">2.3.</span> <span class="toc-text"> flush、close</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reset"><span class="toc-number">2.4.</span> <span class="toc-text"> reset</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#useprotocolversion"><span class="toc-number">2.5.</span> <span class="toc-text"> useProtocolVersion</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#objectinputstream"><span class="toc-number">3.</span> <span class="toc-text"> ObjectInputStream</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95-2"><span class="toc-number">3.1.</span> <span class="toc-text"> 构造方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#read%E7%B3%BB%E5%88%97%E6%96%B9%E6%B3%95"><span class="toc-number">3.2.</span> <span class="toc-text"> read系列方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#skipbytes"><span class="toc-number">3.3.</span> <span class="toc-text"> skipBytes</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#skip-close-available"><span class="toc-number">4.</span> <span class="toc-text"> skip、close、available</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/ffe3/" title="java基础知识梳理（三）：运算符"><img src="/img/cover/cover43.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="java基础知识梳理（三）：运算符"/></a><div class="content"><a class="title" href="/posts/ffe3/" title="java基础知识梳理（三）：运算符">java基础知识梳理（三）：运算符</a><time datetime="2023-08-18T05:55:53.988Z" title="发表于 2023-08-18 13:55:53">2023-08-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/76ce/" title="java基础知识梳理（二）：变量、数据类型"><img src="/img/cover/cover42.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="java基础知识梳理（二）：变量、数据类型"/></a><div class="content"><a class="title" href="/posts/76ce/" title="java基础知识梳理（二）：变量、数据类型">java基础知识梳理（二）：变量、数据类型</a><time datetime="2023-08-18T05:55:53.986Z" title="发表于 2023-08-18 13:55:53">2023-08-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/e960/" title="InputStreamReader和OutputStreamWriter常用方法详解"><img src="/img/cover/cover62.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="InputStreamReader和OutputStreamWriter常用方法详解"/></a><div class="content"><a class="title" href="/posts/e960/" title="InputStreamReader和OutputStreamWriter常用方法详解">InputStreamReader和OutputStreamWriter常用方法详解</a><time datetime="2023-08-18T05:55:53.985Z" title="发表于 2023-08-18 13:55:53">2023-08-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/b442/" title="firewall-cmd命令学习记录"><img src="/img/cover/cover61.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="firewall-cmd命令学习记录"/></a><div class="content"><a class="title" href="/posts/b442/" title="firewall-cmd命令学习记录">firewall-cmd命令学习记录</a><time datetime="2023-08-18T05:55:53.984Z" title="发表于 2023-08-18 13:55:53">2023-08-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/2415/" title="File类常用方法详解"><img src="/img/cover/cover58.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="File类常用方法详解"/></a><div class="content"><a class="title" href="/posts/2415/" title="File类常用方法详解">File类常用方法详解</a><time datetime="2023-08-18T05:55:53.981Z" title="发表于 2023-08-18 13:55:53">2023-08-18</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2023 By 神笔码农</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

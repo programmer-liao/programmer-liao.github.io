@@ -1,0 +1,295 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>java基础知识梳理（五）：数组 | 神笔码农的小站</title><meta name="author" content="神笔码农"><meta name="copyright" content="神笔码农"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="基本介绍 数组可以存放多个同一类型的数据。数组也是一种数据类型，在java中是引用类型  数组定义方式  动态初始化  第一种 先声明数组类型，再分配内存空间 基本语法 12数据类型[] 数组名;数组名 &#x3D; new 数据类型[数组大小]; 如： 12double[] scores; &#x2F;&#x2F; 声明一个double类型的一维数组scores &#x3D; new double[10];&#x2F;&#x2F; 给这个数组分配10个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java基础知识梳理（五）：数组">
+<meta property="og:url" content="https://dezhi.site/posts/bfd1/index.html">
+<meta property="og:site_name" content="神笔码农的小站">
+<meta property="og:description" content="基本介绍 数组可以存放多个同一类型的数据。数组也是一种数据类型，在java中是引用类型  数组定义方式  动态初始化  第一种 先声明数组类型，再分配内存空间 基本语法 12数据类型[] 数组名;数组名 &#x3D; new 数据类型[数组大小]; 如： 12double[] scores; &#x2F;&#x2F; 声明一个double类型的一维数组scores &#x3D; new double[10];&#x2F;&#x2F; 给这个数组分配10个">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://dezhi.site/img/cover/cover45.png">
+<meta property="article:published_time" content="2023-08-18T05:55:53.703Z">
+<meta property="article:modified_time" content="2023-08-18T08:13:28.362Z">
+<meta property="article:author" content="神笔码农">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dezhi.site/img/cover/cover45.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://dezhi.site/posts/bfd1/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'java基础知识梳理（五）：数组',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-08-18 16:13:28'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/footer.css"><link rel="stylesheet" href="/css/background.css"><link rel="stylesheet" href="/css/scrollbar.css"><link rel="stylesheet" href="/css/frontface.css"><link rel="stylesheet" href="/css/card-border.css"><link rel="stylesheet" href="/css/width.css"><link rel="stylesheet" href="/css/my.css"><link rel="stylesheet" href="/css/load.css"><link rel="stylesheet" href="/css/atom-one-dark.css"><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css"/>
+<style>#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags:before {content:"\A";
+  white-space: pre;}#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags > .article-meta__separator{display:none}</style>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><link rel="stylesheet" href="/css/load.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js/pace.min.js"></script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/tux.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">64</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">神笔码农的小站</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">java基础知识梳理（五）：数组</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-08-18T05:55:53.703Z" title="发表于 2023-08-18 13:55:53">2023-08-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-08-18T08:13:28.362Z" title="更新于 2023-08-18 16:13:28">2023-08-18</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Java/">Java</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="java基础知识梳理（五）：数组"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h2 id="基本介绍"><a class="markdownIt-Anchor" href="#基本介绍"></a> 基本介绍</h2>
+<p>数组可以存放多个同一类型的数据。数组也是一种数据类型，<strong>在java中是引用类型</strong></p>
+<h2 id="数组定义方式"><a class="markdownIt-Anchor" href="#数组定义方式"></a> 数组定义方式</h2>
+<h3 id="动态初始化"><a class="markdownIt-Anchor" href="#动态初始化"></a> 动态初始化</h3>
+<h4 id="第一种"><a class="markdownIt-Anchor" href="#第一种"></a> 第一种</h4>
+<p>先声明数组类型，再分配内存空间</p>
+<p><strong>基本语法</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">数据类型[] 数组名;<br>数组名 = <span class="hljs-keyword">new</span> 数据类型[数组大小];<br></code></pre></td></tr></table></figure>
+<p>如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">double</span>[] scores; <span class="hljs-comment">// 声明一个double类型的一维数组</span><br>scores = <span class="hljs-keyword">new</span> <span class="hljs-title class_">double</span>[<span class="hljs-number">10</span>];<span class="hljs-comment">// 给这个数组分配10个double大小空间</span><br></code></pre></td></tr></table></figure>
+<h4 id="第二种"><a class="markdownIt-Anchor" href="#第二种"></a> 第二种</h4>
+<p>直接定义数组，在声明的同时分配内存空间</p>
+<p><strong>基本语法</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">数据类型[] 数组名 = <span class="hljs-keyword">new</span> 数据类型[数组大小];<br></code></pre></td></tr></table></figure>
+<p>如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">double</span>[] = <span class="hljs-keyword">new</span> <span class="hljs-title class_">double</span>[<span class="hljs-number">10</span>]; <span class="hljs-comment">// 定义了一个10个double大小的double数组</span><br></code></pre></td></tr></table></figure>
+<h3 id="静态初始化"><a class="markdownIt-Anchor" href="#静态初始化"></a> 静态初始化</h3>
+<p>在定义数组的同时，指定数组的元素个数和各元素数值</p>
+<p><strong>基本语法</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">数据类型[] 数组名 = &#123;元素<span class="hljs-number">1</span>,元素<span class="hljs-number">2</span>,元素<span class="hljs-number">3</span>,……,元素n&#125;;<br></code></pre></td></tr></table></figure>
+<p>如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 定义一个数组大小为5，元素分别为1,2,3,4,5的数组</span><br><span class="hljs-type">int</span>[] nums = &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>&#125;; <br></code></pre></td></tr></table></figure>
+<h3 id="细节"><a class="markdownIt-Anchor" href="#细节"></a> 细节</h3>
+<ol>
+<li>
+<p>数组数据类型可以是基本数据类型和引用数据类型</p>
+</li>
+<li>
+<p>数组括号位置允许以下几种方式，但是建议选择方式1</p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span>[] nums = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">10</span>]; <span class="hljs-comment">// 方式1</span><br><span class="hljs-comment">// 或 </span><br><span class="hljs-type">int</span> nums[] = nwe <span class="hljs-type">int</span>[<span class="hljs-number">10</span>]; <span class="hljs-comment">// 方式2</span><br></code></pre></td></tr></table></figure>
+<ol start="3">
+<li>
+<p>动态初始化的数组元素，有默认的初始值，具体根据数组的类型而定</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">数据类型</th>
+<th style="text-align:center">初始值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">byte</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">short</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">int</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">long</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">float</td>
+<td style="text-align:center">0.0L</td>
+</tr>
+<tr>
+<td style="text-align:center">double</td>
+<td style="text-align:center">0.0</td>
+</tr>
+<tr>
+<td style="text-align:center">char</td>
+<td style="text-align:center">\u0000</td>
+</tr>
+<tr>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">引用数据类型</td>
+<td style="text-align:center">null</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<h2 id="获取数组长度"><a class="markdownIt-Anchor" href="#获取数组长度"></a> 获取数组长度</h2>
+<p>java可以通过数组的<code>length</code>属性来获取数组长度</p>
+<h3 id="基本用法"><a class="markdownIt-Anchor" href="#基本用法"></a> 基本用法</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span>[] nums = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">10</span>]; <span class="hljs-comment">// 分配长度为10的数组</span><br><span class="hljs-type">int</span> <span class="hljs-variable">length</span> <span class="hljs-operator">=</span> nums.length; <span class="hljs-comment">// length = 10 </span><br></code></pre></td></tr></table></figure>
+<h3 id="细节-2"><a class="markdownIt-Anchor" href="#细节-2"></a> 细节</h3>
+<ol>
+<li>length是数组的一个属性，不是方法，没有括号</li>
+</ol>
+<h2 id="数组访问和遍历"><a class="markdownIt-Anchor" href="#数组访问和遍历"></a> 数组访问和遍历</h2>
+<h3 id="访问"><a class="markdownIt-Anchor" href="#访问"></a> 访问</h3>
+<p>java中数组可以通过数组下标<code>[]</code>来访问数组中的元素</p>
+<p><strong>数组下标从0开始</strong></p>
+<h4 id="基本用法-2"><a class="markdownIt-Anchor" href="#基本用法-2"></a> 基本用法</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span>[] nums = &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>&#125;;<br><span class="hljs-comment">// 通过下标访问数组</span><br>nums[<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>nums[<span class="hljs-number">1</span>] = <span class="hljs-number">2</span>;<br>nums[<span class="hljs-number">2</span>] = <span class="hljs-number">3</span>;<br>nums[<span class="hljs-number">3</span>] = <span class="hljs-number">4</span>;<br>nums[<span class="hljs-number">4</span>] = <span class="hljs-number">5</span>;<br></code></pre></td></tr></table></figure>
+<h3 id="遍历"><a class="markdownIt-Anchor" href="#遍历"></a> 遍历</h3>
+<p>java中数组的遍历一般是结合循环来进行的</p>
+<h4 id="基本使用"><a class="markdownIt-Anchor" href="#基本使用"></a> 基本使用</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span>[] nums = &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>&#125;;<br><span class="hljs-comment">// 遍历数组</span><br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; nums.length; i++) &#123;<br>    System.out.println(nums[i]);<br>&#125;<br><span class="hljs-comment">// 遍历结果如下：</span><br><span class="hljs-comment">// 1</span><br><span class="hljs-comment">// 2</span><br><span class="hljs-comment">// 3</span><br><span class="hljs-comment">// 4</span><br><span class="hljs-comment">// 5 </span><br></code></pre></td></tr></table></figure>
+<h2 id="数组赋值机制"><a class="markdownIt-Anchor" href="#数组赋值机制"></a> 数组赋值机制</h2>
+<ol>
+<li>
+<p>数组名为引用数据类型，其存放的是数组内存空间的地址，数组赋值为引用传递</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs java">   <span class="hljs-type">int</span>[] arr1 = &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>&#125;;<br>   <span class="hljs-type">int</span>[] arr2 = arr1;<br>   <span class="hljs-comment">// 将&#123;1, 2, 3&#125;的内存地址赋给arr2，而不是数组的值</span><br>   <span class="hljs-comment">// 这时arr1和arr2指向同一个数组空间，arr1和arr2都可改变数组的值</span><br><br><span class="hljs-number">2.</span> 基本数据类型间赋值为值传递<br><br>## 二维数组<br><br>### 介绍<br><br>二维数组是特殊的一维数组，二维数组的每一个元素都是一维数组<br><br>**多维数组以此类推**<br><br>### 二维数组定义方式<br><br>#### 动态初始化<br><br>##### 第一种<br><br>先声明二维数组，再分配内存空间<br><br>如<br><br>```java<br><span class="hljs-type">int</span>[][] nums;<br>nums = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">2</span>][<span class="hljs-number">3</span>]; <span class="hljs-comment">// 分配了一个2*3的二维数组</span><br></code></pre></td></tr></table></figure>
+</li>
+</ol>
+<h5 id="第二种-2"><a class="markdownIt-Anchor" href="#第二种-2"></a> 第二种</h5>
+<p>在声明二维数组时同时分配内存空间</p>
+<p>如</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span>[][] nums = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">2</span>][<span class="hljs-number">3</span>];<br></code></pre></td></tr></table></figure>
+<h4 id="静态初始化-2"><a class="markdownIt-Anchor" href="#静态初始化-2"></a> 静态初始化</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 定义了一个3 * 3的二维数组</span><br><span class="hljs-type">int</span>[][] nums = &#123; &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>&#125;,<br>                 &#123;<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>&#125;,<br>                 &#123;<span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>&#125; &#125;;<br></code></pre></td></tr></table></figure>
+<h4 id="细节-3"><a class="markdownIt-Anchor" href="#细节-3"></a> 细节</h4>
+<ol>
+<li>
+<p>二维数组声明的形式有多种，<strong>推荐第一种</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 第一种</span><br><span class="hljs-type">int</span>[][] nums;<br><span class="hljs-comment">// 第二种</span><br><span class="hljs-type">int</span> [] nums[];<br><span class="hljs-comment">// 第三种</span><br><span class="hljs-type">int</span> nums[][];<br></code></pre></td></tr></table></figure>
+</li>
+<li>
+<p>二维数组中的一维数组的大小可以不同分配</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span>[][] nums = &#123; &#123;<span class="hljs-number">1</span>&#125;, <br>                 &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>&#125;, <br>                 &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>&#125; &#125;;<br></code></pre></td></tr></table></figure>
+</li>
+<li>
+<p>动态分配而二维数组内存空间时，可以不指定一维数组的大小，此时二维数组的元素都为<code>null</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span>[][] nums = <span class="hljs-keyword">new</span> [<span class="hljs-number">3</span>][];<br></code></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="获取数组长度-2"><a class="markdownIt-Anchor" href="#获取数组长度-2"></a> 获取数组长度</h3>
+<p>以下面的二维数组为例</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 定义了一个3 * 3的二维数组</span><br><span class="hljs-type">int</span>[][] nums = &#123; &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>&#125;,<br>                 &#123;<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>&#125;,<br>                 &#123;<span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>&#125; &#125;;<br></code></pre></td></tr></table></figure>
+<ol>
+<li>nums.length表示二维数组中的一维数组个数，nums.length = 3</li>
+<li>nums[1].length表示第1行的一维数组{4， 5，6}的数组长度，nums[1].length = 3</li>
+</ol>
+<h3 id="访问二维数组"><a class="markdownIt-Anchor" href="#访问二维数组"></a> 访问二维数组</h3>
+<p>访问二维数组可以通过下标<code>[][]</code>进行访问</p>
+<p><strong>数组下标同样从0开始</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 定义了一个1 * 3的二维数组</span><br><span class="hljs-type">int</span>[][] nums = &#123; &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span> &#125; &#125;;<br><span class="hljs-comment">// 访问</span><br>nums[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>nums[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>] = <span class="hljs-number">2</span>;<br>nums[<span class="hljs-number">0</span>][<span class="hljs-number">2</span>] = <span class="hljs-number">3</span>;<br></code></pre></td></tr></table></figure>
+<h3 id="遍历二维数组"><a class="markdownIt-Anchor" href="#遍历二维数组"></a> 遍历二维数组</h3>
+<p>可以通过二重循环来进行</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 定义了一个3 * 3的二维数组</span><br><span class="hljs-type">int</span>[][] nums = &#123; &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>&#125;,<br>                 &#123;<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>&#125;,<br>                 &#123;<span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>&#125; &#125;;<br><span class="hljs-comment">// 遍历</span><br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; nums.length; i++) &#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; j &lt; nums.length; j++) &#123;<br>        System.out.print(nums[i][j]);<br>    &#125;<br>    System.out.println();<br>&#125;<br><span class="hljs-comment">// 结果如下：</span><br><span class="hljs-comment">// 123 </span><br><span class="hljs-comment">// 456 </span><br><span class="hljs-comment">// 789 </span><br><span class="hljs-comment">//</span><br></code></pre></td></tr></table></figure>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Java/">Java</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/9363/"><img class="prev-cover" src="/img/cover/cover41.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">java基础知识梳理（一）：前置知识</div></div></a></div><div class="next-post pull-right"><a href="/posts/2715/"><img class="next-cover" src="/img/cover/cover44.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">java基础知识梳理（四）：流程控制</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/aa32/" title="Arrays常用方法详解"><img class="cover" src="/img/cover/cover49.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-18</div><div class="title">Arrays常用方法详解</div></div></a></div><div><a href="/posts/41b7/" title="BigInteger和BigDecimal常用方法详解"><img class="cover" src="/img/cover/cover50.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-18</div><div class="title">BigInteger和BigDecimal常用方法详解</div></div></a></div><div><a href="/posts/b663/" title="BufferedReader和BufferedWriter常用方法详解"><img class="cover" src="/img/cover/cover51.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-18</div><div class="title">BufferedReader和BufferedWriter常用方法详解</div></div></a></div><div><a href="/posts/3a2/" title="Calendar类常用方法详解"><img class="cover" src="/img/cover/cover52.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-18</div><div class="title">Calendar类常用方法详解</div></div></a></div><div><a href="/posts/ba8/" title="Collections工具类常用方法详解"><img class="cover" src="/img/cover/cover54.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-18</div><div class="title">Collections工具类常用方法详解</div></div></a></div><div><a href="/posts/35b1/" title="Collection接口方法详解"><img class="cover" src="/img/cover/cover53.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-18</div><div class="title">Collection接口方法详解</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/tux.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">神笔码农</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">64</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/programmer-liao"><i class="fab fa-github"></i><span>follow me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到神笔码农的小站，我在这里分享知识</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text"> 基本介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E5%AE%9A%E4%B9%89%E6%96%B9%E5%BC%8F"><span class="toc-number">2.</span> <span class="toc-text"> 数组定义方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">2.1.</span> <span class="toc-text"> 动态初始化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%A7%8D"><span class="toc-number">2.1.1.</span> <span class="toc-text"> 第一种</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%A7%8D"><span class="toc-number">2.1.2.</span> <span class="toc-text"> 第二种</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">2.2.</span> <span class="toc-text"> 静态初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%86%E8%8A%82"><span class="toc-number">2.3.</span> <span class="toc-text"> 细节</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6"><span class="toc-number">3.</span> <span class="toc-text"> 获取数组长度</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95"><span class="toc-number">3.1.</span> <span class="toc-text"> 基本用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%86%E8%8A%82-2"><span class="toc-number">3.2.</span> <span class="toc-text"> 细节</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E8%AE%BF%E9%97%AE%E5%92%8C%E9%81%8D%E5%8E%86"><span class="toc-number">4.</span> <span class="toc-text"> 数组访问和遍历</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE"><span class="toc-number">4.1.</span> <span class="toc-text"> 访问</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95-2"><span class="toc-number">4.1.1.</span> <span class="toc-text"> 基本用法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%8D%E5%8E%86"><span class="toc-number">4.2.</span> <span class="toc-text"> 遍历</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">4.2.1.</span> <span class="toc-text"> 基本使用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E8%B5%8B%E5%80%BC%E6%9C%BA%E5%88%B6"><span class="toc-number">5.</span> <span class="toc-text"> 数组赋值机制</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%A7%8D-2"><span class="toc-number">5.0.0.1.</span> <span class="toc-text"> 第二种</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E5%88%9D%E5%A7%8B%E5%8C%96-2"><span class="toc-number">5.0.1.</span> <span class="toc-text"> 静态初始化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%86%E8%8A%82-3"><span class="toc-number">5.0.2.</span> <span class="toc-text"> 细节</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6-2"><span class="toc-number">5.1.</span> <span class="toc-text"> 获取数组长度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="toc-number">5.2.</span> <span class="toc-text"> 访问二维数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%8D%E5%8E%86%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="toc-number">5.3.</span> <span class="toc-text"> 遍历二维数组</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/ffe3/" title="java基础知识梳理（三）：运算符"><img src="/img/cover/cover43.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="java基础知识梳理（三）：运算符"/></a><div class="content"><a class="title" href="/posts/ffe3/" title="java基础知识梳理（三）：运算符">java基础知识梳理（三）：运算符</a><time datetime="2023-08-18T05:55:53.988Z" title="发表于 2023-08-18 13:55:53">2023-08-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/76ce/" title="java基础知识梳理（二）：变量、数据类型"><img src="/img/cover/cover42.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="java基础知识梳理（二）：变量、数据类型"/></a><div class="content"><a class="title" href="/posts/76ce/" title="java基础知识梳理（二）：变量、数据类型">java基础知识梳理（二）：变量、数据类型</a><time datetime="2023-08-18T05:55:53.986Z" title="发表于 2023-08-18 13:55:53">2023-08-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/e960/" title="InputStreamReader和OutputStreamWriter常用方法详解"><img src="/img/cover/cover62.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="InputStreamReader和OutputStreamWriter常用方法详解"/></a><div class="content"><a class="title" href="/posts/e960/" title="InputStreamReader和OutputStreamWriter常用方法详解">InputStreamReader和OutputStreamWriter常用方法详解</a><time datetime="2023-08-18T05:55:53.985Z" title="发表于 2023-08-18 13:55:53">2023-08-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/b442/" title="firewall-cmd命令学习记录"><img src="/img/cover/cover61.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="firewall-cmd命令学习记录"/></a><div class="content"><a class="title" href="/posts/b442/" title="firewall-cmd命令学习记录">firewall-cmd命令学习记录</a><time datetime="2023-08-18T05:55:53.984Z" title="发表于 2023-08-18 13:55:53">2023-08-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/2415/" title="File类常用方法详解"><img src="/img/cover/cover58.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="File类常用方法详解"/></a><div class="content"><a class="title" href="/posts/2415/" title="File类常用方法详解">File类常用方法详解</a><time datetime="2023-08-18T05:55:53.981Z" title="发表于 2023-08-18 13:55:53">2023-08-18</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2023 By 神笔码农</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
